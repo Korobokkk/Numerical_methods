@@ -1,0 +1,15 @@
+.vs/
+x64/
+Debug/
+Release/
+bin/
+obj/
+# may be should to ignore. don't know
+*.user
+*.suo
+*.VC.db
+*.VC.opendb
+*.pdb
+*.ipch
+*.log
+*.tmp
