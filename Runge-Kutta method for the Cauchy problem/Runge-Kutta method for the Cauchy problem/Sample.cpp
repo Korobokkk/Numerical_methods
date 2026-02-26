@@ -24,12 +24,21 @@ void Sample::GlobalErrorRate() {
 void Sample::LocalErrorRate() {
 
 }
-void OutlineTmpData(const std::vector<double>& k, double lyambda, double next_n, int iter_index, const std::vector<double>& global, const std::vector<double>& local) {
-	std::cout << iter_index << ":\nk_i: ";
-	for (double k_i : k) {
-		std::cout << k_i << " ";
-	}
-	std::cout << "\nlyambda: " << lyambda << "\nnext_n: " << next_n << "\nGlobalErrorRate: " << global[iter_index + 1];
+//void OutlineTmpData(const std::vector<double>& k, double lyambda, double next_n, int iter_index, const std::vector<double>& global, const std::vector<double>& local) {
+//	std::cout << iter_index << ":\nk_i: ";
+//	for (double k_i : k) {
+//		std::cout << k_i << " ";
+//	}
+//	std::cout << "\nlyambda: " << lyambda << "\nnext_n: " << next_n << "\nGlobalErrorRate: " << global[iter_index + 1];
+//}
+
+const double count_next_u(double u, double h, double lyambda) {
+	double k1, k2, k3, k4;
+	k1 = lyambda * u;
+	k2 = lyambda * (u + h / 2 * k1);
+	k3 = lyambda * (u + h / 2 * k2);
+	k4 = lyambda * (u + h * k3);
+	return u + h / 6 * (k1 + 2 * k2 + 2 * k3 + k4);
 }
 
 const void Sample::MethodRungeKutta() {
@@ -48,15 +57,38 @@ const void Sample::MethodRungeKutta() {
 	while (x[iter_counter] < x_end) {
 		//WARING: sample not using x 
 		k1 = lyambda * u[iter_counter];
-		k2 = lyambda * u[iter_counter] + curr_h / 2 * k1;
-		k3 = lyambda * u[iter_counter] + curr_h / 2 * k2;
-		k4 = lyambda * u[iter_counter] + curr_h * k3;
+		k2 = lyambda * (u[iter_counter] + curr_h / 2 * k1);
+		k3 = lyambda * (u[iter_counter] + curr_h / 2 * k2);
+		k4 = lyambda * (u[iter_counter] + curr_h * k3);
 
 		u.push_back(u.back() + curr_h / 6 * (k1 + 2 * k2 + 2 * k3 + k4));
 		x.push_back(x.back() + curr_h);
 
-		global_error_rate.push_back(u[iter_counter+1] -
+		global_error_rate.push_back(u[iter_counter + 1] -
 									u_0 * exp(lyambda * (x[iter_counter+1] - x_0)));
+
+		double f1 = count_next_u(u[iter_counter], curr_h / 2, lyambda);
+		double f2 = count_next_u(f1, curr_h / 2, lyambda);
+		local_error_rate.push_back(f2 - u[iter_counter + 1]);
+		double S = abs(local_error_rate.back() / 15.0);
+
+		if (epsilon / 32.0 <= S && S <= epsilon) {
+			//good
+			std::cout << "\n\ngood, make print";
+		}
+		else if(S < epsilon / 32.0){
+			curr_h *= 2;
+			std::cout << "\n\nnext h/=2 cool, make print";
+		}
+		else {
+			std::cout << "very bad. Restart";
+			curr_h /= 2.0;
+			u.pop_back();
+			x.pop_back();
+			global_error_rate.pop_back();
+			local_error_rate.pop_back();
+			continue;
+		}
 
 		std::cout << "\niter: " << iter_counter <<
 			"\n h_iter: " << curr_h <<
@@ -64,44 +96,10 @@ const void Sample::MethodRungeKutta() {
 			"\n u_next: " << u[iter_counter+1]<<
 			"\n x_next: " << x[iter_counter+1]<<
 			"\n global_error: " << global_error_rate[iter_counter +1];
-		
-
 
 		
 		iter_counter++;
 	}
 	std::cout << "\nexit";
-
-	/*int count_iteration = (x_end - x_0) / h;
-
-	double lyambda = pow(-1, variant_num) * variant_num / 2;
-	std::vector<double> global_error_rate(count_iteration, 0.0);
-	std::vector<double> local_error_rate(count_iteration, 0.0);
-
-	std::vector<double> u(count_iteration);
-	std::vector<double> k(4);
-	u[0] = u_0;*/
-
-	//for (int i = 0; i < count_iteration; i++) { //u_0 skipped
-	//	double h_n = h;
-	//	//WARING: sample not using x 
-	//	k[0] = lyambda * u[i];
-	//	k[1] = lyambda * (u[i] + h_n / 2 * k[0]);
-	//	k[2] = lyambda * (u[i] + h_n / 2 * k[1]);
-	//	k[3] = lyambda * (u[i] + h_n * k[2]);
-
-	//	//WARING: sample not using x 
-	//	u[i+1] = u[i] + h_n / 6 * (k[0] + 2 * k[1] + 2 * k[2] + k[3]);
-
-	//	//GlobalErrorRate
-	//	double x_n = x_0 + h * (i + 1);
-	//	global_error_rate[i + 1] = u_0 * exp(lyambda*(x_n -x_0));
-	//	//LocalErrorRate
-
-
-	//	//consolelog
-	//	OutlineTmpData(k, lyambda, u[i + 1], i, global_error_rate, local_error_rate);
-
-	//}
 	
 }
