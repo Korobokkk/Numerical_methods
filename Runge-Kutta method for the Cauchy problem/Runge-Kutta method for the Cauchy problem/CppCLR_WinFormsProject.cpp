@@ -26,6 +26,7 @@ int main()
 
 	Sample tmp;
 	tmp.PrintSampleData();
+	tmp.MethodRungeKutta();
 
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);

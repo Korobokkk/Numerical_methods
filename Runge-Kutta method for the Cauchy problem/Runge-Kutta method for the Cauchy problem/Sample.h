@@ -6,7 +6,7 @@ ref class Sample
 public:
 	//тест данные
 	Sample() {
-		CreateSampleData(2, 1.0, 10.0, 0.0, 1.0, 1.0);
+		CreateSampleData(2, 1.0, 10.0, 1.0, 1.0, 1.0);
 	}
 	
 	Sample(int var, double x_0, double x_end, double h, double u_0, double epsilon) {
@@ -14,7 +14,7 @@ public:
 	}
 	void CreateSampleData(int var, double x_0, double x_end, double h, double u_0, double epsilon);
 	void PrintSampleData();
-	void MethodRungeKutta();
+	const void MethodRungeKutta();
 	void GlobalErrorRate();
 	void LocalErrorRate();
 private:
