@@ -55,6 +55,10 @@ const void Sample::MethodRungeKutta() {
 	//double x_curr = x_0;
 	int iter_counter = 0;
 	while (x[iter_counter] < x_end) {
+		if (curr_h < 1e-12) {
+			std::cout << "Step too small\n";
+			break;
+		}
 		//WARING: sample not using x 
 		k1 = lyambda * u[iter_counter];
 		k2 = lyambda * (u[iter_counter] + curr_h / 2 * k1);
@@ -70,7 +74,7 @@ const void Sample::MethodRungeKutta() {
 		double f1 = count_next_u(u[iter_counter], curr_h / 2, lyambda);
 		double f2 = count_next_u(f1, curr_h / 2, lyambda);
 		local_error_rate.push_back(f2 - u[iter_counter + 1]);
-		double S = abs(local_error_rate.back() / 15.0);
+		double S = std::fabs(local_error_rate.back() / 15.0);
 
 		if (epsilon / 32.0 <= S && S <= epsilon) {
 			//good
@@ -78,10 +82,10 @@ const void Sample::MethodRungeKutta() {
 		}
 		else if(S < epsilon / 32.0){
 			curr_h *= 2;
-			std::cout << "\n\nnext h/=2 cool, make print";
+			std::cout << "\n\nnext h*=2 cool, make print";
 		}
 		else {
-			std::cout << "very bad. Restart";
+			std::cout << "very bad. Restart step";
 			curr_h /= 2.0;
 			u.pop_back();
 			x.pop_back();
@@ -90,12 +94,15 @@ const void Sample::MethodRungeKutta() {
 			continue;
 		}
 
+		curr_h = std::min(x_end - x.back(), curr_h);
+
 		std::cout << "\niter: " << iter_counter <<
 			"\n h_iter: " << curr_h <<
 			"\n k: " << k1 << " " << k2 << " " << k3 << " " << k4 <<
-			"\n u_next: " << u[iter_counter+1]<<
-			"\n x_next: " << x[iter_counter+1]<<
-			"\n global_error: " << global_error_rate[iter_counter +1];
+			"\n u_next: " << u[iter_counter + 1] <<
+			"\n x_next: " << x[iter_counter + 1] <<
+			"\n global_error: " << global_error_rate[iter_counter + 1] <<
+			"\n local_error: " << local_error_rate[iter_counter + 1];
 
 		
 		iter_counter++;
