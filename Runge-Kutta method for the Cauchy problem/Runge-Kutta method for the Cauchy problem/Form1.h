@@ -18,6 +18,7 @@ namespace CppCLRWinFormsProject {
 		Form1(void)
 		{
 			InitializeComponent();
+			solver = gcnew Sample();
 			//
 			//TODO: Add the constructor code here
 			//
@@ -34,8 +35,13 @@ namespace CppCLRWinFormsProject {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::DataGridView^ dataGridView1;
+	private: System::Windows::Forms::Button^ button1;
+
+	protected:
 
 	private:
+		Sample^ solver;
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -48,18 +54,63 @@ namespace CppCLRWinFormsProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
+			// 
+			// dataGridView1
+			// 
+			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Location = System::Drawing::Point(0, 707);
+			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->RowHeadersWidth = 62;
+			this->dataGridView1->RowTemplate->Height = 28;
+			this->dataGridView1->Size = System::Drawing::Size(2403, 379);
+			this->dataGridView1->TabIndex = 0;
+			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Form1::dataGridView1_CellContentClick);
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(2218, 656);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(171, 45);
+			this->button1->TabIndex = 1;
+			this->button1->Text = L"Расчитать";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
 			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1484, 457);
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->ClientSize = System::Drawing::Size(2401, 1083);
+			this->Controls->Add(this->button1);
+			this->Controls->Add(this->dataGridView1);
 			this->Name = L"Form1";
 			this->Text = L"Form1";
+			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
+	private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
+		dataGridView1->AutoGenerateColumns = true;
+	}
+	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	}
+		   
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		dataGridView1->DataSource = nullptr;
+
+		solver = gcnew Sample();   // новый объект
+		solver->MethodRungeKutta();
+
+		dataGridView1->AutoGenerateColumns = true;
+		dataGridView1->DataSource = solver->results;
+	}
 	};
+	
 }

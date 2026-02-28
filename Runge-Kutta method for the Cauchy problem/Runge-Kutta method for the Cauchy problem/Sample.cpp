@@ -45,16 +45,15 @@ const double count_next_u(double u, double h, double lyambda) {
 void Sample::MethodRungeKutta() {
 	// dy / dx= (-1)**var_num * var_num / 2 * u 
 	// WARING: sample not using x 
-	results->Add({0 ,x_0 ,u_0 , u_0 ,0 , h, 0, 0, u_0, 0});
+	results->Add({0 ,x_0 ,u_0 , u_0, 0 ,0 , h, 0, 0, u_0, 0});
 	/*
-	StepResult row = { iter_counter, x_value, u_big, u_half,
+	StepResult row = { iter_counter, x_value, u_big, u_half, diff
                    local_error, curr_h,
                    counter_div, counter_mul,
                    u_true, global_error };
 
 	*/ //for save
 	
-	StepResult row;
 
 	double u_curr = u_0;
 	double x_curr = x_0;
@@ -67,36 +66,43 @@ void Sample::MethodRungeKutta() {
 	double mul_counter = 0;
 	int iter_counter = 0;
 	while (x_curr < x_end) {
+		StepResult row;
+
 		curr_h = next_h;
 		if (curr_h < 1e-12) {
 			std::cout << "Step too small\n";
 			break;
 		}
+
+		row.iter = iter_counter + 1;
+		row.curr_h = curr_h;
+
 		//WARING: sample not using x 
 		k1 = lyambda * u_curr;
 		k2 = lyambda * (u_curr + curr_h / 2 * k1);
 		k3 = lyambda * (u_curr + curr_h / 2 * k2);
 		k4 = lyambda * (u_curr + curr_h * k3);		
 
-		double u_next = u_curr + curr_h / 6 * (k1 + 2 * k2 + 2 * k3 + k4);
-		double x_next = x_curr + curr_h;
 
-		double next_global_error = u_next - u_0 * exp(lyambda * (x_next - x_0));
+		row.u_approximate = u_curr + curr_h / 6 * (k1 + 2 * k2 + 2 * k3 + k4);
+		row.x = x_curr + curr_h;
+
+		row.u_true = u_0 * exp(lyambda * (row.x - x_0));
+
+		row.global_error_rate = std::fabs(row.u_approximate - u_0 * exp(lyambda * (row.x - x_0)));
 
 		double f1 = count_next_u(u_curr, curr_h / 2, lyambda);
-		double f2 = count_next_u(f1, curr_h / 2, lyambda);
+		row.u_2_approximate = count_next_u(f1, curr_h / 2, lyambda);
+		row.diff_u2_u_approximate = std::fabs(row.u_2_approximate - row.u_approximate);
+		row.local_error_rate = std::fabs(row.diff_u2_u_approximate / 15.0);
 
-		double next_local_error(std::fabs(f2 - u_next));
-		
-		double S = std::fabs(next_local_error / 15.0);
-		
 		bool IsPositive = true;
 		if (IsDinamicStep) {
-			if (epsilon / 32.0 <= S && S <= epsilon) {
+			if (epsilon / 32.0 <= row.local_error_rate && row.local_error_rate <= epsilon) {
 				next_h = curr_h;
 				std::cout << "\n\ngood, make print";
 			}
-			else if (S < epsilon / 32.0) {
+			else if (row.local_error_rate < epsilon / 32.0) {
 				next_h *= 2;
 				mul_counter += 1;
 				std::cout << "\n\nnext h*=2 cool, make print";
@@ -111,20 +117,20 @@ void Sample::MethodRungeKutta() {
 		}
 		if (IsPositive) {
 
-			u_curr = u_next;
-			x_curr = x_next;
+			u_curr = row.u_approximate;
+			x_curr = row.x;
 		}
 		//checks out_of ranges
-		next_h = std::min(x_end - x_next, next_h);
+		next_h = std::min(x_end - row.x, next_h);
 
 		std::cout << "\niter: " << iter_counter <<
 			"\n h_iter: " << next_h <<
 			"\n k: " << k1 << " " << k2 << " " << k3 << " " << k4 <<
-			"\n u_next: " << u_next <<
-			"\n x_next: " << x_next <<
-			"\n global_error: " << next_global_error <<
-			"\n local_error: " << next_local_error;
-		
+			"\n u_next: " << row.u_approximate <<
+			"\n x_next: " << row.x <<
+			"\n global_error: " << row.global_error_rate <<
+			"\n local_error: " << row.local_error_rate;
+		results->Add(row);
 		iter_counter++;
 	}
 	std::cout << "\nexit";
