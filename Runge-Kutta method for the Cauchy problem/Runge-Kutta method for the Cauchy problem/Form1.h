@@ -62,19 +62,21 @@ namespace CppCLRWinFormsProject {
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(0, 707);
+			this->dataGridView1->Location = System::Drawing::Point(11, 442);
+			this->dataGridView1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 62;
 			this->dataGridView1->RowTemplate->Height = 28;
-			this->dataGridView1->Size = System::Drawing::Size(2403, 379);
+			this->dataGridView1->Size = System::Drawing::Size(1602, 246);
 			this->dataGridView1->TabIndex = 0;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Form1::dataGridView1_CellContentClick);
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(2218, 656);
+			this->button1->Location = System::Drawing::Point(1479, 426);
+			this->button1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(171, 45);
+			this->button1->Size = System::Drawing::Size(114, 29);
 			this->button1->TabIndex = 1;
 			this->button1->Text = L"Расчитать";
 			this->button1->UseVisualStyleBackColor = true;
@@ -82,12 +84,13 @@ namespace CppCLRWinFormsProject {
 			// 
 			// Form1
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->ClientSize = System::Drawing::Size(2401, 1083);
+			this->ClientSize = System::Drawing::Size(1601, 690);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->dataGridView1);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"Form1";
 			this->Text = L"Form1";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
@@ -110,6 +113,8 @@ namespace CppCLRWinFormsProject {
 
 		dataGridView1->AutoGenerateColumns = true;
 		dataGridView1->DataSource = solver->results;
+		dataGridView1->AutoSizeColumnsMode =
+			DataGridViewAutoSizeColumnsMode::Fill;
 	}
 	};
 	
