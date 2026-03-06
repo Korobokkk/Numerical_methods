@@ -103,7 +103,6 @@ void Sample::MethodRungeKutta() {
 				std::cout << "\nvery bad.Restart step\n";
 				next_h /= 2.0;
 				div_counter += 1;
-				row->counter_div = div_counter;
 				IsPositive = false;
 				continue;
 			}
