@@ -97,7 +97,6 @@ void Sample::MethodRungeKutta() {
 			else if (row->local_error_rate < epsilon / 32.0) {
 				next_h *= 2;
 				mul_counter += 1;
-				row->counter_mul = mul_counter;
 				std::cout << "\n\nnext h*=2 cool, make print";
 			}
 			else {
@@ -109,6 +108,8 @@ void Sample::MethodRungeKutta() {
 				continue;
 			}
 		}
+		row->counter_mul = mul_counter;
+		row->counter_div = div_counter;
 		if (IsPositive) {
 
 			u_curr = row->u_approximate;

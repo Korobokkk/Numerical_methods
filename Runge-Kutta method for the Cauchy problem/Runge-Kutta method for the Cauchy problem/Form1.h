@@ -61,20 +61,22 @@ namespace CppCLRWinFormsProject {
 			// 
 			// dataGridView1
 			// 
+			this->dataGridView1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(11, 442);
-			this->dataGridView1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->dataGridView1->Location = System::Drawing::Point(-2, 442);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 62;
 			this->dataGridView1->RowTemplate->Height = 28;
-			this->dataGridView1->Size = System::Drawing::Size(1602, 246);
+			this->dataGridView1->Size = System::Drawing::Size(1409, 246);
 			this->dataGridView1->TabIndex = 0;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Form1::dataGridView1_CellContentClick);
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(1479, 426);
-			this->button1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+			this->button1->Location = System::Drawing::Point(1293, 408);
+			this->button1->Margin = System::Windows::Forms::Padding(2);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(114, 29);
 			this->button1->TabIndex = 1;
@@ -87,10 +89,10 @@ namespace CppCLRWinFormsProject {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->ClientSize = System::Drawing::Size(1601, 690);
+			this->ClientSize = System::Drawing::Size(1408, 690);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->dataGridView1);
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"Form1";
 			this->Text = L"Form1";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
@@ -113,8 +115,15 @@ namespace CppCLRWinFormsProject {
 
 		dataGridView1->AutoGenerateColumns = true;
 		dataGridView1->DataSource = solver->results;
+		dataGridView1->RowHeadersVisible = false;
 		dataGridView1->AutoSizeColumnsMode =
 			DataGridViewAutoSizeColumnsMode::Fill;
+		int n = dataGridView1->Columns->Count;
+
+		for (int i = 0; i < n; i++)
+		{
+			dataGridView1->Columns[i]->DisplayIndex = n - i - 1;
+		}
 	}
 	};
 	
