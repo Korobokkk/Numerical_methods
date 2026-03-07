@@ -18,7 +18,7 @@ namespace CppCLRWinFormsProject {
 		Form1(void)
 		{
 			InitializeComponent();
-			solver = gcnew Sample();
+			//solver = gcnew Sample();
 			//
 			//TODO: Add the constructor code here
 			//
@@ -60,6 +60,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TextBox^ textBox9;
 	private: System::Windows::Forms::TextBox^ EpsilonInput;
 	private: System::Windows::Forms::CheckBox^ IsDinamicStepChoose;
+	private: System::Windows::Forms::Panel^ panel1;
 
 
 		   /// <summary>
@@ -87,7 +88,9 @@ namespace CppCLRWinFormsProject {
 			this->textBox9 = (gcnew System::Windows::Forms::TextBox());
 			this->EpsilonInput = (gcnew System::Windows::Forms::TextBox());
 			this->IsDinamicStepChoose = (gcnew System::Windows::Forms::CheckBox());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// dataGridView1
@@ -95,18 +98,18 @@ namespace CppCLRWinFormsProject {
 			this->dataGridView1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(-2, 442);
+			this->dataGridView1->Location = System::Drawing::Point(-2, 776);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 62;
 			this->dataGridView1->RowTemplate->Height = 28;
-			this->dataGridView1->Size = System::Drawing::Size(1227, 246);
+			this->dataGridView1->Size = System::Drawing::Size(1954, 246);
 			this->dataGridView1->TabIndex = 0;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Form1::dataGridView1_CellContentClick);
 			// 
 			// button1
 			// 
 			this->button1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
-			this->button1->Location = System::Drawing::Point(1101, 406);
+			this->button1->Location = System::Drawing::Point(1828, 740);
 			this->button1->Margin = System::Windows::Forms::Padding(2);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(120, 30);
@@ -118,7 +121,7 @@ namespace CppCLRWinFormsProject {
 			// X0Input
 			// 
 			this->X0Input->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->X0Input->Location = System::Drawing::Point(12, 414);
+			this->X0Input->Location = System::Drawing::Point(14, 77);
 			this->X0Input->Name = L"X0Input";
 			this->X0Input->Size = System::Drawing::Size(100, 20);
 			this->X0Input->TabIndex = 2;
@@ -129,7 +132,7 @@ namespace CppCLRWinFormsProject {
 			// textBox2
 			// 
 			this->textBox2->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->textBox2->Location = System::Drawing::Point(12, 397);
+			this->textBox2->Location = System::Drawing::Point(14, 60);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->ReadOnly = true;
 			this->textBox2->Size = System::Drawing::Size(100, 20);
@@ -141,28 +144,30 @@ namespace CppCLRWinFormsProject {
 			// textBox3
 			// 
 			this->textBox3->BackColor = System::Drawing::SystemColors::Info;
-			this->textBox3->Location = System::Drawing::Point(109, 397);
+			this->textBox3->Location = System::Drawing::Point(111, 60);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->ReadOnly = true;
 			this->textBox3->Size = System::Drawing::Size(100, 20);
 			this->textBox3->TabIndex = 5;
 			this->textBox3->Text = L"x_end";
 			this->textBox3->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox3->TextChanged += gcnew System::EventHandler(this, &Form1::textBox3_TextChanged);
 			// 
 			// XEndInput
 			// 
 			this->XEndInput->BackColor = System::Drawing::SystemColors::Info;
-			this->XEndInput->Location = System::Drawing::Point(109, 414);
+			this->XEndInput->Location = System::Drawing::Point(111, 77);
 			this->XEndInput->Name = L"XEndInput";
 			this->XEndInput->Size = System::Drawing::Size(100, 20);
 			this->XEndInput->TabIndex = 4;
 			this->XEndInput->Text = L"1,0";
 			this->XEndInput->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->XEndInput->TextChanged += gcnew System::EventHandler(this, &Form1::XEndInput_TextChanged);
 			// 
 			// textBox5
 			// 
 			this->textBox5->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->textBox5->Location = System::Drawing::Point(206, 397);
+			this->textBox5->Location = System::Drawing::Point(208, 60);
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->ReadOnly = true;
 			this->textBox5->Size = System::Drawing::Size(100, 20);
@@ -173,7 +178,7 @@ namespace CppCLRWinFormsProject {
 			// HInput
 			// 
 			this->HInput->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->HInput->Location = System::Drawing::Point(206, 414);
+			this->HInput->Location = System::Drawing::Point(208, 77);
 			this->HInput->Name = L"HInput";
 			this->HInput->Size = System::Drawing::Size(100, 20);
 			this->HInput->TabIndex = 6;
@@ -184,18 +189,19 @@ namespace CppCLRWinFormsProject {
 			// textBox7
 			// 
 			this->textBox7->BackColor = System::Drawing::SystemColors::Info;
-			this->textBox7->Location = System::Drawing::Point(303, 397);
+			this->textBox7->Location = System::Drawing::Point(305, 60);
 			this->textBox7->Name = L"textBox7";
 			this->textBox7->ReadOnly = true;
 			this->textBox7->Size = System::Drawing::Size(100, 20);
 			this->textBox7->TabIndex = 9;
 			this->textBox7->Text = L"u_0:";
 			this->textBox7->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox7->TextChanged += gcnew System::EventHandler(this, &Form1::textBox7_TextChanged);
 			// 
 			// U0Input
 			// 
 			this->U0Input->BackColor = System::Drawing::SystemColors::Info;
-			this->U0Input->Location = System::Drawing::Point(303, 414);
+			this->U0Input->Location = System::Drawing::Point(305, 77);
 			this->U0Input->Name = L"U0Input";
 			this->U0Input->Size = System::Drawing::Size(100, 20);
 			this->U0Input->TabIndex = 8;
@@ -206,51 +212,64 @@ namespace CppCLRWinFormsProject {
 			// textBox9
 			// 
 			this->textBox9->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->textBox9->Location = System::Drawing::Point(398, 397);
+			this->textBox9->Location = System::Drawing::Point(400, 60);
 			this->textBox9->Name = L"textBox9";
 			this->textBox9->ReadOnly = true;
 			this->textBox9->Size = System::Drawing::Size(100, 20);
 			this->textBox9->TabIndex = 11;
 			this->textBox9->Text = L"Epsilon:";
 			this->textBox9->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox9->TextChanged += gcnew System::EventHandler(this, &Form1::textBox9_TextChanged);
 			// 
 			// EpsilonInput
 			// 
 			this->EpsilonInput->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->EpsilonInput->Location = System::Drawing::Point(398, 414);
+			this->EpsilonInput->Location = System::Drawing::Point(400, 77);
 			this->EpsilonInput->Name = L"EpsilonInput";
 			this->EpsilonInput->Size = System::Drawing::Size(100, 20);
 			this->EpsilonInput->TabIndex = 10;
 			this->EpsilonInput->Text = L"0,00000001";
 			this->EpsilonInput->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->EpsilonInput->TextChanged += gcnew System::EventHandler(this, &Form1::EpsilonInput_TextChanged);
 			// 
 			// IsDinamicStepChoose
 			// 
 			this->IsDinamicStepChoose->BackColor = System::Drawing::SystemColors::ActiveBorder;
-			this->IsDinamicStepChoose->Location = System::Drawing::Point(971, 406);
+			this->IsDinamicStepChoose->Location = System::Drawing::Point(506, 60);
 			this->IsDinamicStepChoose->Name = L"IsDinamicStepChoose";
-			this->IsDinamicStepChoose->Size = System::Drawing::Size(125, 29);
+			this->IsDinamicStepChoose->Size = System::Drawing::Size(162, 37);
 			this->IsDinamicStepChoose->TabIndex = 12;
 			this->IsDinamicStepChoose->Text = L"Адаптивность шага";
 			this->IsDinamicStepChoose->UseVisualStyleBackColor = false;
+			// 
+			// panel1
+			// 
+			this->panel1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(
+				System::Windows::Forms::AnchorStyles::Bottom |
+				System::Windows::Forms::AnchorStyles::Left);
+			this->panel1->Controls->Add(this->textBox2);
+			this->panel1->Controls->Add(this->IsDinamicStepChoose);
+			this->panel1->Controls->Add(this->X0Input);
+			this->panel1->Controls->Add(this->textBox9);
+			this->panel1->Controls->Add(this->XEndInput);
+			this->panel1->Controls->Add(this->EpsilonInput);
+			this->panel1->Controls->Add(this->textBox3);
+			this->panel1->Controls->Add(this->textBox7);
+			this->panel1->Controls->Add(this->HInput);
+			this->panel1->Controls->Add(this->U0Input);
+			this->panel1->Controls->Add(this->textBox5);
+			this->panel1->Location = System::Drawing::Point(-2, 670);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(749, 100);
+			this->panel1->TabIndex = 13;
 			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->ClientSize = System::Drawing::Size(1226, 690);
-			this->Controls->Add(this->IsDinamicStepChoose);
-			this->Controls->Add(this->textBox9);
-			this->Controls->Add(this->EpsilonInput);
-			this->Controls->Add(this->textBox7);
-			this->Controls->Add(this->U0Input);
-			this->Controls->Add(this->textBox5);
-			this->Controls->Add(this->HInput);
-			this->Controls->Add(this->textBox3);
-			this->Controls->Add(this->XEndInput);
-			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->X0Input);
+			this->ClientSize = System::Drawing::Size(1953, 1024);
+			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->dataGridView1);
 			this->Margin = System::Windows::Forms::Padding(2);
@@ -258,8 +277,9 @@ namespace CppCLRWinFormsProject {
 			this->Text = L"Form1";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			this->panel1->ResumeLayout(false);
+			this->panel1->PerformLayout();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -300,6 +320,16 @@ private: System::Void textBox2_TextChanged(System::Object^ sender, System::Event
 private: System::Void HInput_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void U0Input_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void textBox9_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void EpsilonInput_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void textBox7_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void textBox3_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void XEndInput_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 	
