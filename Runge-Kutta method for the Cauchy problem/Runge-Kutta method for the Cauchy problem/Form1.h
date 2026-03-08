@@ -8,6 +8,7 @@ namespace CppCLRWinFormsProject {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Windows::Forms::DataVisualization::Charting;
 
 	/// <summary>
 	/// Summary for Form1
@@ -61,6 +62,9 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TextBox^ EpsilonInput;
 	private: System::Windows::Forms::CheckBox^ IsDinamicStepChoose;
 	private: System::Windows::Forms::Panel^ panel1;
+	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart1;
+	private: System::Windows::Forms::ToolStrip^ toolStrip1;
+
 
 
 		   /// <summary>
@@ -75,6 +79,10 @@ namespace CppCLRWinFormsProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->X0Input = (gcnew System::Windows::Forms::TextBox());
@@ -89,8 +97,11 @@ namespace CppCLRWinFormsProject {
 			this->EpsilonInput = (gcnew System::Windows::Forms::TextBox());
 			this->IsDinamicStepChoose = (gcnew System::Windows::Forms::CheckBox());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->toolStrip1 = (gcnew System::Windows::Forms::ToolStrip());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->panel1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// dataGridView1
@@ -98,18 +109,18 @@ namespace CppCLRWinFormsProject {
 			this->dataGridView1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(-2, 776);
+			this->dataGridView1->Location = System::Drawing::Point(2, 729);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 62;
 			this->dataGridView1->RowTemplate->Height = 28;
-			this->dataGridView1->Size = System::Drawing::Size(1954, 246);
+			this->dataGridView1->Size = System::Drawing::Size(1573, 246);
 			this->dataGridView1->TabIndex = 0;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Form1::dataGridView1_CellContentClick);
 			// 
 			// button1
 			// 
 			this->button1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
-			this->button1->Location = System::Drawing::Point(1828, 740);
+			this->button1->Location = System::Drawing::Point(1447, 693);
 			this->button1->Margin = System::Windows::Forms::Padding(2);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(120, 30);
@@ -244,11 +255,8 @@ namespace CppCLRWinFormsProject {
 			// 
 			// panel1
 			// 
-			this->panel1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(
-				System::Windows::Forms::AnchorStyles::Bottom |
-				System::Windows::Forms::AnchorStyles::Left);
+			this->panel1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
 			this->panel1->Controls->Add(this->textBox2);
-			this->panel1->Controls->Add(this->IsDinamicStepChoose);
 			this->panel1->Controls->Add(this->X0Input);
 			this->panel1->Controls->Add(this->textBox9);
 			this->panel1->Controls->Add(this->XEndInput);
@@ -258,33 +266,74 @@ namespace CppCLRWinFormsProject {
 			this->panel1->Controls->Add(this->HInput);
 			this->panel1->Controls->Add(this->U0Input);
 			this->panel1->Controls->Add(this->textBox5);
-			this->panel1->Location = System::Drawing::Point(-2, 670);
+			this->panel1->Controls->Add(this->IsDinamicStepChoose);
+			this->panel1->Location = System::Drawing::Point(2, 623);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(749, 100);
 			this->panel1->TabIndex = 13;
+			// 
+			// chart1
+			// 
+			chartArea1->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea1);
+			legend1->Name = L"Legend1";
+			this->chart1->Legends->Add(legend1);
+			this->chart1->Location = System::Drawing::Point(12, 3);
+			this->chart1->Name = L"chart1";
+			series1->ChartArea = L"ChartArea1";
+			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series1->Color = System::Drawing::Color::Red;
+			series1->Legend = L"Legend1";
+			series1->Name = L"Приближенное значение";
+			series2->ChartArea = L"ChartArea1";
+			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series2->Color = System::Drawing::Color::Blue;
+			series2->Legend = L"Legend1";
+			series2->Name = L"Истинное значение";
+			this->chart1->Series->Add(series1);
+			this->chart1->Series->Add(series2);
+			this->chart1->Size = System::Drawing::Size(1548, 674);
+			this->chart1->TabIndex = 14;
+			this->chart1->Text = L"chart1";
+			// 
+			// toolStrip1
+			// 
+			this->toolStrip1->ImageScalingSize = System::Drawing::Size(24, 24);
+			this->toolStrip1->Location = System::Drawing::Point(0, 0);
+			this->toolStrip1->Name = L"toolStrip1";
+			this->toolStrip1->Size = System::Drawing::Size(1572, 25);
+			this->toolStrip1->TabIndex = 15;
+			this->toolStrip1->Text = L"toolStrip1";
 			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->ClientSize = System::Drawing::Size(1953, 1024);
+			this->ClientSize = System::Drawing::Size(1572, 977);
+			this->Controls->Add(this->toolStrip1);
+			this->Controls->Add(this->chart1);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->dataGridView1);
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"Form1";
-			this->Text = L"Form1";
+			this->Text = L"/";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->EndInit();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
 	private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 		dataGridView1->AutoGenerateColumns = true;
+		chart1->ChartAreas[0]->AxisX->LabelStyle->Format = "F2";
+		//chart1->ChartAreas[0]->AxisX->Interval = 0.2;
+		chart1->ChartAreas[0]->AxisX->Minimum = 0.0;
 	}
 	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	}
@@ -311,6 +360,15 @@ namespace CppCLRWinFormsProject {
 		for (int i = 0; i < n; i++)
 		{
 			dataGridView1->Columns[i]->DisplayIndex = n - i - 1;
+		}
+
+		chart1->Series["Приближенное значение"]->Points->Clear();
+		chart1->Series["Истинное значение"]->Points->Clear();
+
+		for each (StepResult^ r in solver->results)
+		{
+			chart1->Series["Приближенное значение"]->Points->AddXY(r->x, r->u_approximate);
+			chart1->Series["Истинное значение"]->Points->AddXY(r->x, r->u_true);
 		}
 	}
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
