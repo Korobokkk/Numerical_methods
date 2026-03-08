@@ -19,7 +19,7 @@ ref class MainTask
 {
 public:
 	MainTask() {
-		this->m = 1.0;
+		this->m = 0.01;
 		this->c = 0.15;
 		this->k = 2.0;
 		this->k_second = 2.0;
@@ -29,10 +29,13 @@ public:
 		this->x_end = 1.0;
 		this->curr_h = 0.01;
 		this->max_operation = 10000;
+		this->epsilon = 0.00000001;
 		this->IsDinamicStep = 1;
 		MainResults = gcnew BindingList<StepResultMainTask^>();
 	}
-
+	double f2(double y1, double y2);
+	std::pair<double, double> calculate_next_v(double curr_h, double curr_v1, double curr_v2);
+	int epsilon_check(double local_error_rate);
 	void MRK4();
 	BindingList<StepResultMainTask^>^ MainResults;
 private:
@@ -46,6 +49,7 @@ private:
 	double x_end;
 	double curr_h;
 	double max_operation;
+	double epsilon;
 	bool IsDinamicStep;
 };
 
