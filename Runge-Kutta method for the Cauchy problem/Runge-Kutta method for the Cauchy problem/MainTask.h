@@ -36,11 +36,11 @@ public:
 		this->IsDinamicStep = 1;
 		MainResults = gcnew BindingList<StepResultMainTask^>();
 	}
-	MainTask(double u_0, double u_first_dif, double x_0, double x_end, double h, double max_operation, double epsilon, bool IsDinamicStep) {
-		this->m = 0.01;
-		this->c = 0.15;
-		this->k = 2.0;
-		this->k_second = 2.0;
+	MainTask(double m, double c, double k, double k_second, double u_0, double u_first_dif, double x_0, double x_end, double h, double max_operation, double epsilon, bool IsDinamicStep) {
+		this->m = m;
+		this->c = c;
+		this->k = k;
+		this->k_second = k_second;
 		this->u_0 = u_0;
 		this->u_first_dif = u_first_dif;
 		this->x_0 = x_0;

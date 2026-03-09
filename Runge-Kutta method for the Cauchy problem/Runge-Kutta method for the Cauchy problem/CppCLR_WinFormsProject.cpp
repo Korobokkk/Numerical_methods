@@ -22,8 +22,8 @@ int main()
 	std::freopen("CONIN$", "r", stdin); 
 
 	std::cout << "Console initialized\n";
-	MainTask maintmp;
-	maintmp.MRK4();
+	/*MainTask maintmp;
+	maintmp.MRK4();*/
 
 	/*Sample tmp;
 	tmp.PrintSampleData();
