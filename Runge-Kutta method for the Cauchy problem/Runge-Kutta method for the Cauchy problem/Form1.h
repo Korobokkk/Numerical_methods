@@ -64,6 +64,10 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart1;
 	private: System::Windows::Forms::ToolStrip^ toolStrip1;
+	private: System::Windows::Forms::TabPage^ tabPage2;
+	private: System::Windows::Forms::TabControl^ tabControl1;
+	private: System::Windows::Forms::TabPage^ tabPage1;
+	private: System::Windows::Forms::TabPage^ tabPage3;
 
 
 
@@ -99,9 +103,15 @@ namespace CppCLRWinFormsProject {
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->toolStrip1 = (gcnew System::Windows::Forms::ToolStrip());
+			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
+			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
+			this->tabControl1->SuspendLayout();
+			this->tabPage1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// dataGridView1
@@ -109,21 +119,21 @@ namespace CppCLRWinFormsProject {
 			this->dataGridView1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(2, 729);
+			this->dataGridView1->Location = System::Drawing::Point(-6, 760);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 62;
 			this->dataGridView1->RowTemplate->Height = 28;
-			this->dataGridView1->Size = System::Drawing::Size(1573, 246);
+			this->dataGridView1->Size = System::Drawing::Size(1926, 246);
 			this->dataGridView1->TabIndex = 0;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Form1::dataGridView1_CellContentClick);
 			// 
 			// button1
 			// 
 			this->button1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
-			this->button1->Location = System::Drawing::Point(1447, 693);
+			this->button1->Location = System::Drawing::Point(1789, 712);
 			this->button1->Margin = System::Windows::Forms::Padding(2);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(120, 30);
+			this->button1->Size = System::Drawing::Size(123, 39);
 			this->button1->TabIndex = 1;
 			this->button1->Text = L"Расчитать";
 			this->button1->UseVisualStyleBackColor = true;
@@ -185,6 +195,7 @@ namespace CppCLRWinFormsProject {
 			this->textBox5->TabIndex = 7;
 			this->textBox5->Text = L"Шаг (h):";
 			this->textBox5->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox5->TextChanged += gcnew System::EventHandler(this, &Form1::textBox5_TextChanged);
 			// 
 			// HInput
 			// 
@@ -256,30 +267,31 @@ namespace CppCLRWinFormsProject {
 			// panel1
 			// 
 			this->panel1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
+			this->panel1->Controls->Add(this->EpsilonInput);
+			this->panel1->Controls->Add(this->U0Input);
 			this->panel1->Controls->Add(this->textBox2);
 			this->panel1->Controls->Add(this->X0Input);
 			this->panel1->Controls->Add(this->textBox9);
 			this->panel1->Controls->Add(this->XEndInput);
-			this->panel1->Controls->Add(this->EpsilonInput);
 			this->panel1->Controls->Add(this->textBox3);
 			this->panel1->Controls->Add(this->textBox7);
 			this->panel1->Controls->Add(this->HInput);
-			this->panel1->Controls->Add(this->U0Input);
 			this->panel1->Controls->Add(this->textBox5);
 			this->panel1->Controls->Add(this->IsDinamicStepChoose);
-			this->panel1->Location = System::Drawing::Point(2, 623);
+			this->panel1->Location = System::Drawing::Point(6, 654);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(749, 100);
 			this->panel1->TabIndex = 13;
 			// 
 			// chart1
 			// 
-			this->chart1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right)));
+			this->chart1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			chartArea1->Name = L"ChartArea1";
 			this->chart1->ChartAreas->Add(chartArea1);
 			legend1->Name = L"Legend1";
 			this->chart1->Legends->Add(legend1);
-			this->chart1->Location = System::Drawing::Point(12, 3);
+			this->chart1->Location = System::Drawing::Point(3, 31);
 			this->chart1->Name = L"chart1";
 			series1->ChartArea = L"ChartArea1";
 			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
@@ -293,30 +305,72 @@ namespace CppCLRWinFormsProject {
 			series2->Name = L"Истинное значение";
 			this->chart1->Series->Add(series1);
 			this->chart1->Series->Add(series2);
-			this->chart1->Size = System::Drawing::Size(1548, 674);
+			this->chart1->Size = System::Drawing::Size(1901, 674);
 			this->chart1->TabIndex = 14;
 			this->chart1->Text = L"chart1";
 			// 
 			// toolStrip1
 			// 
 			this->toolStrip1->ImageScalingSize = System::Drawing::Size(24, 24);
-			this->toolStrip1->Location = System::Drawing::Point(0, 0);
+			this->toolStrip1->Location = System::Drawing::Point(3, 3);
 			this->toolStrip1->Name = L"toolStrip1";
-			this->toolStrip1->Size = System::Drawing::Size(1572, 25);
+			this->toolStrip1->Size = System::Drawing::Size(1911, 25);
 			this->toolStrip1->TabIndex = 15;
 			this->toolStrip1->Text = L"toolStrip1";
+			// 
+			// tabPage2
+			// 
+			this->tabPage2->Location = System::Drawing::Point(0, 0);
+			this->tabPage2->Name = L"tabPage2";
+			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage2->Size = System::Drawing::Size(200, 100);
+			this->tabPage2->TabIndex = 0;
+			this->tabPage2->Text = L"tabPage2";
+			// 
+			// tabControl1
+			// 
+			this->tabControl1->Controls->Add(this->tabPage1);
+			this->tabControl1->Controls->Add(this->tabPage3);
+			this->tabControl1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->tabControl1->Location = System::Drawing::Point(0, 0);
+			this->tabControl1->Name = L"tabControl1";
+			this->tabControl1->SelectedIndex = 0;
+			this->tabControl1->Size = System::Drawing::Size(1925, 1028);
+			this->tabControl1->TabIndex = 16;
+			// 
+			// tabPage1
+			// 
+			this->tabPage1->Controls->Add(this->dataGridView1);
+			this->tabPage1->Controls->Add(this->toolStrip1);
+			this->tabPage1->Controls->Add(this->button1);
+			this->tabPage1->Controls->Add(this->chart1);
+			this->tabPage1->Controls->Add(this->panel1);
+			this->tabPage1->Location = System::Drawing::Point(4, 22);
+			this->tabPage1->Name = L"tabPage1";
+			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage1->Size = System::Drawing::Size(1917, 1002);
+			this->tabPage1->TabIndex = 0;
+			this->tabPage1->Text = L"tabPage1";
+			this->tabPage1->UseVisualStyleBackColor = true;
+			this->tabPage1->Click += gcnew System::EventHandler(this, &Form1::tabPage1_Click);
+			// 
+			// tabPage3
+			// 
+			this->tabPage3->Location = System::Drawing::Point(4, 22);
+			this->tabPage3->Name = L"tabPage3";
+			this->tabPage3->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage3->Size = System::Drawing::Size(2143, 1000);
+			this->tabPage3->TabIndex = 1;
+			this->tabPage3->Text = L"tabPage3";
+			this->tabPage3->UseVisualStyleBackColor = true;
 			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->ClientSize = System::Drawing::Size(1572, 977);
-			this->Controls->Add(this->toolStrip1);
-			this->Controls->Add(this->chart1);
-			this->Controls->Add(this->panel1);
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->dataGridView1);
+			this->ClientSize = System::Drawing::Size(1925, 1028);
+			this->Controls->Add(this->tabControl1);
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"Form1";
 			this->Text = L"/";
@@ -325,8 +379,10 @@ namespace CppCLRWinFormsProject {
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->EndInit();
+			this->tabControl1->ResumeLayout(false);
+			this->tabPage1->ResumeLayout(false);
+			this->tabPage1->PerformLayout();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -389,6 +445,10 @@ private: System::Void textBox7_TextChanged(System::Object^ sender, System::Event
 private: System::Void textBox3_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void XEndInput_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void textBox5_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void tabPage1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 	

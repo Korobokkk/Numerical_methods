@@ -122,6 +122,18 @@ void MainTask::MRK4() {
 		next_row->counter_mul = counter_mul;
 		MainResults->Add(next_row);
 
+		std::cout
+			<< "iter=" << counter_success
+			<< " x=" << next_x
+			<< " u=" << next_v1
+			<< " u2=" << tmp_v1
+			<< " diff=" << diff_u2_u_approximate1
+			<< " err=" << local_error_rate1
+			<< " h=" << curr_h
+			<< " div=" << counter_div
+			<< " mul=" << counter_mul
+			<< std::endl;//tmp cout
+
 		curr_h = std::min(x_end - curr_x, next_h);
 		curr_x = next_x;
 		curr_v1 = next_v1;

@@ -1,4 +1,7 @@
 #pragma once
+#include <iostream>
+#include <utility>
+
 using namespace System::ComponentModel;
 
 public ref class StepResultMainTask{
@@ -33,6 +36,21 @@ public:
 		this->IsDinamicStep = 1;
 		MainResults = gcnew BindingList<StepResultMainTask^>();
 	}
+	MainTask(double u_0, double u_first_dif, double x_0, double x_end, double h, double max_operation, double epsilon, bool IsDinamicStep) {
+		this->m = 0.01;
+		this->c = 0.15;
+		this->k = 2.0;
+		this->k_second = 2.0;
+		this->u_0 = u_0;
+		this->u_first_dif = u_first_dif;
+		this->x_0 = x_0;
+		this->x_end = x_end;
+		this->curr_h = h;
+		this->max_operation = max_operation;
+		this->epsilon = epsilon;
+		this->IsDinamicStep = IsDinamicStep;
+		MainResults = gcnew BindingList<StepResultMainTask^>();
+	};
 	double f2(double y1, double y2);
 	std::pair<double, double> calculate_next_v(double curr_h, double curr_v1, double curr_v2);
 	int epsilon_check(double local_error_rate);

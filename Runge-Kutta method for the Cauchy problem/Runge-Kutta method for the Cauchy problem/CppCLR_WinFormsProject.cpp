@@ -1,9 +1,8 @@
 #include "pch.h"
 #include "Sample.h"
-
+#include "MainTask.h"
 #include <iostream>
 #include <windows.h>
-
 using namespace System;
 
 // int main(array<System::String ^> ^args)
@@ -23,10 +22,12 @@ int main()
 	std::freopen("CONIN$", "r", stdin); 
 
 	std::cout << "Console initialized\n";
+	MainTask maintmp;
+	maintmp.MRK4();
 
-	Sample tmp;
+	/*Sample tmp;
 	tmp.PrintSampleData();
-	tmp.MethodRungeKutta();
+	tmp.MethodRungeKutta();*/
 
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
