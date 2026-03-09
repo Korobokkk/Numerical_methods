@@ -55,6 +55,7 @@ void MainTask::MRK4() {
 	row_first->iter = counter;
 	row_first->x = this->x_0;
 	row_first->u_approximate = u_0;
+	row_first->u_first_dif_approximate = u_first_dif;
 	row_first->u_2_approximate = u_0;
 	row_first->diff_u2_u_approximate = 0;
 	row_first->local_error_rate = 0;
@@ -114,6 +115,7 @@ void MainTask::MRK4() {
 		next_row->iter = ++counter_success;
 		next_row->x = next_x;
 		next_row->u_approximate = next_v1;
+		next_row->u_first_dif_approximate = next_v2;
 		next_row->u_2_approximate = tmp_v1;
 		next_row->diff_u2_u_approximate = diff_u2_u_approximate1;
 		next_row->local_error_rate = local_error_rate1;
@@ -126,6 +128,7 @@ void MainTask::MRK4() {
 			<< "iter=" << counter_success
 			<< " x=" << next_x
 			<< " u=" << next_v1
+			<< " u_f_d="<< next_v2
 			<< " u2=" << tmp_v1
 			<< " diff=" << diff_u2_u_approximate1
 			<< " err=" << local_error_rate1

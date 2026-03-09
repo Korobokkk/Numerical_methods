@@ -9,6 +9,7 @@ public:
 	property int iter;
 	property double x;
 	property double u_approximate;
+	property double u_first_dif_approximate;
 	property double u_2_approximate;
 	property double diff_u2_u_approximate;
 	property double local_error_rate;

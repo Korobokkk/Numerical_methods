@@ -135,18 +135,18 @@ namespace CppCLRWinFormsProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea10 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend10 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series19 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series20 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea11 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend11 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series21 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series22 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea12 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend12 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series23 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series24 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series5 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series6 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->X0Input = (gcnew System::Windows::Forms::TextBox());
@@ -223,10 +223,10 @@ namespace CppCLRWinFormsProject {
 			// button1
 			// 
 			this->button1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
-			this->button1->Location = System::Drawing::Point(1324, 676);
+			this->button1->Location = System::Drawing::Point(1727, 674);
 			this->button1->Margin = System::Windows::Forms::Padding(2);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(123, 39);
+			this->button1->Size = System::Drawing::Size(145, 37);
 			this->button1->TabIndex = 1;
 			this->button1->Text = L"Расчитать";
 			this->button1->UseVisualStyleBackColor = true;
@@ -380,24 +380,24 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->chart1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			chartArea10->Name = L"ChartArea1";
-			this->chart1->ChartAreas->Add(chartArea10);
-			legend10->Name = L"Legend1";
-			this->chart1->Legends->Add(legend10);
+			chartArea1->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea1);
+			legend1->Name = L"Legend1";
+			this->chart1->Legends->Add(legend1);
 			this->chart1->Location = System::Drawing::Point(71, 45);
 			this->chart1->Name = L"chart1";
-			series19->ChartArea = L"ChartArea1";
-			series19->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series19->Color = System::Drawing::Color::Red;
-			series19->Legend = L"Legend1";
-			series19->Name = L"Приближенное значение";
-			series20->ChartArea = L"ChartArea1";
-			series20->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series20->Color = System::Drawing::Color::Blue;
-			series20->Legend = L"Legend1";
-			series20->Name = L"Истинное значение";
-			this->chart1->Series->Add(series19);
-			this->chart1->Series->Add(series20);
+			series1->ChartArea = L"ChartArea1";
+			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series1->Color = System::Drawing::Color::Red;
+			series1->Legend = L"Legend1";
+			series1->Name = L"Приближенное значение";
+			series2->ChartArea = L"ChartArea1";
+			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series2->Color = System::Drawing::Color::Blue;
+			series2->Legend = L"Legend1";
+			series2->Name = L"Истинное значение";
+			this->chart1->Series->Add(series1);
+			this->chart1->Series->Add(series2);
 			this->chart1->Size = System::Drawing::Size(1431, 512);
 			this->chart1->TabIndex = 14;
 			this->chart1->Text = L"chart1";
@@ -466,24 +466,27 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->chart3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			chartArea11->Name = L"ChartArea1";
-			this->chart3->ChartAreas->Add(chartArea11);
-			legend11->Name = L"Legend1";
-			this->chart3->Legends->Add(legend11);
+			chartArea2->AxisX->LabelStyle->Format = L"F2";
+			chartArea2->AxisX->Title = L"u(x)";
+			chartArea2->AxisY->LabelStyle->Format = L"F2";
+			chartArea2->AxisY->Title = L"u`(x)";
+			chartArea2->AxisX->Crossing = 0;
+			chartArea2->AxisY->Crossing = 0;
+			chartArea2->Name = L"ChartArea1";
+			/*chartArea2->AxisX->MajorGrid->Enabled = true;
+			chartArea2->AxisY->MajorGrid->Enabled = true;*/
+			this->chart3->ChartAreas->Add(chartArea2);
+			legend2->Name = L"Legend1";
+			this->chart3->Legends->Add(legend2);
 			this->chart3->Location = System::Drawing::Point(944, 6);
 			this->chart3->Name = L"chart3";
-			series21->ChartArea = L"ChartArea1";
-			series21->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series21->Color = System::Drawing::Color::Red;
-			series21->Legend = L"Legend1";
-			series21->Name = L"Приближенное значение";
-			series22->ChartArea = L"ChartArea1";
-			series22->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series22->Color = System::Drawing::Color::Blue;
-			series22->Legend = L"Legend1";
-			series22->Name = L"Истинное значение";
-			this->chart3->Series->Add(series21);
-			this->chart3->Series->Add(series22);
+			series3->ChartArea = L"ChartArea1";
+			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series3->Color = System::Drawing::Color::Red;
+			series3->Legend = L"Legend1";
+			series3->Name = L"Фазовый портрет";
+			//series3->BorderWidth = 2;
+			this->chart3->Series->Add(series3);
 			this->chart3->Size = System::Drawing::Size(945, 638);
 			this->chart3->TabIndex = 16;
 			this->chart3->Text = L"chart3";
@@ -492,24 +495,22 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->chart2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			chartArea12->Name = L"ChartArea1";
-			this->chart2->ChartAreas->Add(chartArea12);
-			legend12->Name = L"Legend1";
-			this->chart2->Legends->Add(legend12);
+			chartArea3->AxisX->LabelStyle->Format = L"F2";
+			chartArea3->AxisX->Title = L"x";
+			chartArea3->AxisY->LabelStyle->Format = L"F2";
+			chartArea3->AxisY->Title = L"u(x)";
+			chartArea3->Name = L"ChartArea1";
+			this->chart2->ChartAreas->Add(chartArea3);
+			legend3->Name = L"Legend1";
+			this->chart2->Legends->Add(legend3);
 			this->chart2->Location = System::Drawing::Point(3, 6);
 			this->chart2->Name = L"chart2";
-			series23->ChartArea = L"ChartArea1";
-			series23->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series23->Color = System::Drawing::Color::Red;
-			series23->Legend = L"Legend1";
-			series23->Name = L"Приближенное значение";
-			series24->ChartArea = L"ChartArea1";
-			series24->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series24->Color = System::Drawing::Color::Blue;
-			series24->Legend = L"Legend1";
-			series24->Name = L"Истинное значение";
-			this->chart2->Series->Add(series23);
-			this->chart2->Series->Add(series24);
+			series5->ChartArea = L"ChartArea1";
+			series5->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series5->Color = System::Drawing::Color::Red;
+			series5->Legend = L"Legend1";
+			series5->Name = L"Приближенное значение";
+			this->chart2->Series->Add(series5);
 			this->chart2->Size = System::Drawing::Size(936, 638);
 			this->chart2->TabIndex = 15;
 			this->chart2->Text = L"chart2";
@@ -903,8 +904,6 @@ namespace CppCLRWinFormsProject {
 
 		sourse = gcnew MainTask(m_in, c_in, k_in, k_second_in, u_0_in, u_f_d_in, x_0_in, x_end_in, start_h_in, max_operation_in, epsilon_in, IsDinamicStep_in );
 		sourse->MRK4();
- 		//solver = gcnew Sample(2, x0, xend, h, u0, eps, check_dinamic);
-		//solver->MethodRungeKutta();
 
 		dataGridView2->AutoGenerateColumns = true;
 		dataGridView2->DataSource = sourse->MainResults;
@@ -916,6 +915,18 @@ namespace CppCLRWinFormsProject {
 		for (int i = 0; i < n; i++)
 		{
 			dataGridView2->Columns[i]->DisplayIndex = n - i - 1;
+		}
+
+		chart2->Series["Приближенное значение"]->Points->Clear();
+		chart3->Series["Фазовый портрет"]->Points->Clear();
+
+		for each (StepResultMainTask ^ r in sourse->MainResults)
+		{
+			chart2->Series["Приближенное значение"]->Points->AddXY(r->x, r->u_approximate);
+			chart3->Series["Фазовый портрет"]->Points->AddXY(
+				r->u_approximate,
+				r->u_first_dif_approximate
+			);
 		}
 
 		/*chart1->Series["Приближенное значение"]->Points->Clear();
