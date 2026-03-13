@@ -18,13 +18,13 @@ void Sample::CreateSampleData(int var, double x_0, double x_end, double h, doubl
 
 void Sample::PrintData() {
 	std::cout << "\n\nvar: "<< variant_num <<"\n x_0: " << x_0 << "\n x_end: " << x_end << "\n h: "  << h << "\n u_0: " << u_0;
-	std::cout << "n = " << results->Count << "b - xn = 0";
+	std::cout << "n = " << results->Count << " b - xn = 0";
 	
-	double max_u = results[0]->curr_h;
+	double max_h = results[0]->curr_h;
 	int index = 0;
 
-	double min_u = results[0]->curr_h;
-	int index_min_u = 0;
+	double min_h = results[0]->curr_h;
+	int index_min_h = 0;
 
 	double max_olp = results[0]->local_error_rate;
 	int index_olp = 0;
@@ -33,14 +33,14 @@ void Sample::PrintData() {
 	int count_div=0;
 	for (int i = 0; i < results->Count; i++)
 	{
-		if (results[i]->curr_h > max_u)
+		if (results[i]->curr_h > max_h)
 		{
-			max_u = results[i]->curr_h;
+			max_h = results[i]->curr_h;
 			index = i;
 		}
-		if (results[i]->curr_h < min_u) {
-			min_u = results[i]->curr_h;
-			index_min_u = i;
+		if (results[i]->curr_h < min_h) {
+			min_h = results[i]->curr_h;
+			index_min_h = i;
 		}
 		if (results[i]->local_error_rate > max_olp) {
 			max_olp = results[i]->local_error_rate;
@@ -54,8 +54,8 @@ void Sample::PrintData() {
 		}
 	}
 	std::cout << "\nmax OLP = " << max_olp <<" index = " << index_olp<< 
-		"\nmaxh = " << max_u << " index = "<< index 
-		<< "\nmin h = " << min_u << " index = " << index_min_u 
+		"\nmaxh = " << max_h << " index = "<< index 
+		<< "\nmin h = " << min_h << " index = " << index_min_h 
 		<<"\ncount mul = " << count_mul<<"\ncount div = "<< count_div;
 }
 
@@ -132,15 +132,15 @@ void Sample::MethodRungeKutta() {
 		if (IsDinamicStep) {
 			if (epsilon / 32.0 <= row->local_error_rate && row->local_error_rate <= epsilon) {
 				next_h = curr_h;
-				std::cout << "\n\ngood, make print";
+				//std::cout << "\n\ngood, make print";
 			}
 			else if (row->local_error_rate < epsilon / 32.0) {
 				next_h *= 2;
 				mul_counter = 1;
-				std::cout << "\n\nnext h*=2 cool, make print";
+				//std::cout << "\n\nnext h*=2 cool, make print";
 			}
 			else {
-				std::cout << "\nvery bad.Restart step\n";
+				//std::cout << "\nvery bad.Restart step\n";
 				next_h /= 2.0;
 				div_counter = 1;
 				IsPositive = false;
@@ -157,13 +157,6 @@ void Sample::MethodRungeKutta() {
 		//checks out_of ranges
 		next_h = std::min(x_end - row->x, next_h);
 
-	/*	std::cout << "\niter: " << iter_counter <<
-			"\n h_iter: " << next_h <<
-			"\n k: " << k1 << " " << k2 << " " << k3 << " " << k4 <<
-			"\n u_next: " << row->u_approximate <<
-			"\n x_next: " << row->x <<
-			"\n global_error: " << row->global_error_rate <<
-			"\n local_error: " << row->local_error_rate;*/
 		div_counter = 0;
 		mul_counter = 0;
 		results->Add(row);

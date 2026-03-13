@@ -13,13 +13,13 @@ double MainTask::f2(double y1, double y2) {
 
 void MainTask::PrintData() {
 	//std::cout << "\n\nvar: " << variant_num << "\n x_0: " << x_0 << "\n x_end: " << x_end << "\n h: " << h << "\n u_0: " << u_0;
-	std::cout << "n = " << MainResults->Count << "b - xn = 0";
+	std::cout << "\n\nn = " << MainResults->Count << " b - xn = 0";
 
-	double max_u = MainResults[0]->curr_h;
+	double max_h = MainResults[0]->curr_h;
 	int index = 0;
 
-	double min_u = MainResults[0]->curr_h;
-	int index_min_u = 0;
+	double min_h = MainResults[0]->curr_h;
+	int index_min_h = 0;
 
 	double max_olp = MainResults[0]->local_error_rate;
 	int index_olp = 0;
@@ -28,14 +28,14 @@ void MainTask::PrintData() {
 	int count_div = 0;
 	for (int i = 0; i < MainResults->Count; i++)
 	{
-		if (MainResults[i]->curr_h > max_u)
+		if (MainResults[i]->curr_h > max_h)
 		{
-			max_u = MainResults[i]->curr_h;
+			max_h = MainResults[i]->curr_h;
 			index = i;
 		}
-		if (MainResults[i]->curr_h < min_u) {
-			min_u = MainResults[i]->curr_h;
-			index_min_u = i;
+		if (MainResults[i]->curr_h < min_h) {
+			min_h = MainResults[i]->curr_h;
+			index_min_h = i;
 		}
 		if (MainResults[i]->local_error_rate > max_olp) {
 			max_olp = MainResults[i]->local_error_rate;
@@ -49,8 +49,8 @@ void MainTask::PrintData() {
 		}
 	}
 	std::cout << "\nmax OLP = " << max_olp << " index = " << index_olp <<
-		"\nmaxh = " << max_u << " index = " << index
-		<< "\nmin h = " << min_u << " index = " << index_min_u
+		"\nmaxh = " << max_h << " index = " << index
+		<< "\nmin h = " << min_h << " index = " << index_min_h
 		<< "\ncount mul = " << count_mul << "\ncount div = " << count_div;
 }
 
@@ -92,6 +92,8 @@ void MainTask::MRK4() {
 	int counter = 0;
 	int counter_div = 0;
 	int counter_mul = 0;
+	int next_mul_flag = 0;
+	int div_flag = 0;
 	int counter_success = 0;
 
 	bool IsDiv = false;
@@ -114,10 +116,11 @@ void MainTask::MRK4() {
 			std::cout << "Step too small\n";
 			break;
 		}
-		if (!IsDiv) {
-			counter_div = 0;
-			counter_mul = 0;
-		}		
+
+		counter_div = div_flag;
+		counter_mul = next_mul_flag;
+		next_mul_flag = 0;
+		div_flag = 0;
 
 		double next_x = curr_x + curr_h;
 			
@@ -145,16 +148,16 @@ void MainTask::MRK4() {
 			point_counter += epsilon_check(local_error_rate2);
 			if (point_counter == 6) {
 				next_h *= 2;
-				counter_mul = 1;
-				std::cout << "\n\nnext h*=2 cool, make print";
+				next_mul_flag = 1;
+				//std::cout << "\n\nnext h*=2 cool, make print";
 			}
 			else if (2 <= point_counter && point_counter <= 5) {
-				std::cout << "\n\ngood, make print";
+				//std::cout << "\n\ngood, make print";
 			}
 			else {
-				std::cout << "\nvery bad.Restart step\n";
+				//std::cout << "\nvery bad.Restart step\n";
 				curr_h /= 2.0;
-				counter_div = 1;
+				div_flag= 1;
 				IsDiv = true;
 				counter++;
 				continue;
@@ -179,8 +182,6 @@ void MainTask::MRK4() {
 		curr_v1 = next_v1;
 		curr_v2 = next_v2;
 		counter++;
-
-		IsDiv = false;
 	}
 	if (counter >= max_operation) {
 		std::cout << "Max operations reached\n";
