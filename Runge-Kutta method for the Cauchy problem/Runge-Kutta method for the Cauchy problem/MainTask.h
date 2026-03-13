@@ -56,6 +56,7 @@ public:
 	std::pair<double, double> calculate_next_v(double curr_h, double curr_v1, double curr_v2);
 	int epsilon_check(double local_error_rate);
 	void MRK4();
+	void PrintData();
 	BindingList<StepResultMainTask^>^ MainResults;
 private:
 	double m;

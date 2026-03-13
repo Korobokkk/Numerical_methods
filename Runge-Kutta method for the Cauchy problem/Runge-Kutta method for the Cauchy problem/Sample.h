@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <utility>
 //#include <vector>
 
 using namespace System::ComponentModel;
@@ -35,7 +36,7 @@ public:
 	}
 	BindingList<StepResult^>^ results;
 	void CreateSampleData(int var, double x_0, double x_end, double h, double u_0, double epsilon, bool IsDinamicStep);
-	void PrintSampleData();
+	void PrintData();
 	void MethodRungeKutta();
 private:
 	int variant_num;

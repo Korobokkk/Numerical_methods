@@ -15,8 +15,48 @@ void Sample::CreateSampleData(int var, double x_0, double x_end, double h, doubl
 	this->IsDinamicStep = IsDinamicStep;
 	return;
 };
-void Sample::PrintSampleData() {
-	std::cout << "var: "<< variant_num <<"\n x_0: " << x_0 << "\n x_end: " << x_end << "\n h: "  << h << "\n u_0: " << u_0;
+
+void Sample::PrintData() {
+	std::cout << "\n\nvar: "<< variant_num <<"\n x_0: " << x_0 << "\n x_end: " << x_end << "\n h: "  << h << "\n u_0: " << u_0;
+	std::cout << "n = " << results->Count << "b - xn = 0";
+	
+	double max_u = results[0]->curr_h;
+	int index = 0;
+
+	double min_u = results[0]->curr_h;
+	int index_min_u = 0;
+
+	double max_olp = results[0]->local_error_rate;
+	int index_olp = 0;
+
+	int count_mul=0;
+	int count_div=0;
+	for (int i = 0; i < results->Count; i++)
+	{
+		if (results[i]->curr_h > max_u)
+		{
+			max_u = results[i]->curr_h;
+			index = i;
+		}
+		if (results[i]->curr_h < min_u) {
+			min_u = results[i]->curr_h;
+			index_min_u = i;
+		}
+		if (results[i]->local_error_rate > max_olp) {
+			max_olp = results[i]->local_error_rate;
+			index_olp = i;
+		}
+		if (results[i]->counter_div != 0) {
+			count_div += results[i]->counter_div;
+		}
+		if (results[i]->counter_mul != 0) {
+			count_mul += results[i]->counter_mul;
+		}
+	}
+	std::cout << "\nmax OLP = " << max_olp <<" index = " << index_olp<< 
+		"\nmaxh = " << max_u << " index = "<< index 
+		<< "\nmin h = " << min_u << " index = " << index_min_u 
+		<<"\ncount mul = " << count_mul<<"\ncount div = "<< count_div;
 }
 
 const double count_next_u(double u, double h, double lyambda) {
@@ -96,13 +136,13 @@ void Sample::MethodRungeKutta() {
 			}
 			else if (row->local_error_rate < epsilon / 32.0) {
 				next_h *= 2;
-				mul_counter += 1;
+				mul_counter = 1;
 				std::cout << "\n\nnext h*=2 cool, make print";
 			}
 			else {
 				std::cout << "\nvery bad.Restart step\n";
 				next_h /= 2.0;
-				div_counter += 1;
+				div_counter = 1;
 				IsPositive = false;
 				continue;
 			}
@@ -117,13 +157,15 @@ void Sample::MethodRungeKutta() {
 		//checks out_of ranges
 		next_h = std::min(x_end - row->x, next_h);
 
-		std::cout << "\niter: " << iter_counter <<
+	/*	std::cout << "\niter: " << iter_counter <<
 			"\n h_iter: " << next_h <<
 			"\n k: " << k1 << " " << k2 << " " << k3 << " " << k4 <<
 			"\n u_next: " << row->u_approximate <<
 			"\n x_next: " << row->x <<
 			"\n global_error: " << row->global_error_rate <<
-			"\n local_error: " << row->local_error_rate;
+			"\n local_error: " << row->local_error_rate;*/
+		div_counter = 0;
+		mul_counter = 0;
 		results->Add(row);
 		iter_counter++;
 	}
