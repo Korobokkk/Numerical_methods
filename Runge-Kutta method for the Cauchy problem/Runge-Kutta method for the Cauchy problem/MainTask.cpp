@@ -179,8 +179,14 @@ void MainTask::MRK4() {
 
 		curr_h = std::min(x_end - curr_x, next_h);
 		curr_x = next_x;
-		curr_v1 = next_v1;
-		curr_v2 = next_v2;
+		if (IsHalfStep) {
+			curr_v1 = tmp_v1;
+			curr_v2 = tmp_v2;
+		}
+		else {
+			curr_v1 = next_v1;
+			curr_v2 = next_v2;
+		}
 		counter++;
 	}
 	if (counter >= max_operation) {
