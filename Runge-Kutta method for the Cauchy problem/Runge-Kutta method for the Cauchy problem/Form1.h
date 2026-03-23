@@ -121,6 +121,9 @@ namespace CppCLRWinFormsProject {
 
 	private: System::Windows::Forms::TextBox^ textBox27;
 private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart4;
+private: System::Windows::Forms::CheckBox^ IsHalfStep;
+private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
+
 
 
 
@@ -141,15 +144,15 @@ private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart4;
 			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
 			System::Windows::Forms::DataVisualization::Charting::Legend^ legend3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::Series^ series4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea4 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
 			System::Windows::Forms::DataVisualization::Charting::Legend^ legend4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::Series^ series5 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->X0Input = (gcnew System::Windows::Forms::TextBox());
@@ -169,7 +172,9 @@ private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart4;
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->TestProblem = (gcnew System::Windows::Forms::TabPage());
+			this->IsHalfStep = (gcnew System::Windows::Forms::CheckBox());
 			this->MainProblem = (gcnew System::Windows::Forms::TabPage());
+			this->chart4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->chart3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->chart2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
@@ -198,18 +203,18 @@ private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart4;
 			this->IsDinamicStep2 = (gcnew System::Windows::Forms::CheckBox());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
-			this->chart4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->IsHalfStepMain = (gcnew System::Windows::Forms::CheckBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->tabControl1->SuspendLayout();
 			this->TestProblem->SuspendLayout();
 			this->MainProblem->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart4))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart3))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart2))->BeginInit();
 			this->panel2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart4))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// dataGridView1
@@ -217,19 +222,19 @@ private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart4;
 			this->dataGridView1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(30, 1108);
+			this->dataGridView1->Location = System::Drawing::Point(30, 638);
 			this->dataGridView1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 62;
 			this->dataGridView1->RowTemplate->Height = 28;
-			this->dataGridView1->Size = System::Drawing::Size(2810, 378);
+			this->dataGridView1->Size = System::Drawing::Size(1888, 378);
 			this->dataGridView1->TabIndex = 0;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Form1::dataGridView1_CellContentClick);
 			// 
 			// button1
 			// 
 			this->button1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
-			this->button1->Location = System::Drawing::Point(2590, 1037);
+			this->button1->Location = System::Drawing::Point(1668, 567);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(218, 57);
 			this->button1->TabIndex = 1;
@@ -387,7 +392,7 @@ private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart4;
 			this->panel1->Controls->Add(this->HInput);
 			this->panel1->Controls->Add(this->textBox5);
 			this->panel1->Controls->Add(this->IsDinamicStepChoose);
-			this->panel1->Location = System::Drawing::Point(30, 945);
+			this->panel1->Location = System::Drawing::Point(30, 475);
 			this->panel1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(1124, 154);
@@ -416,7 +421,7 @@ private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart4;
 			series2->Name = L"Истинное значение";
 			this->chart1->Series->Add(series1);
 			this->chart1->Series->Add(series2);
-			this->chart1->Size = System::Drawing::Size(2146, 788);
+			this->chart1->Size = System::Drawing::Size(1224, 788);
 			this->chart1->TabIndex = 14;
 			this->chart1->Text = L"chart1";
 			// 
@@ -426,7 +431,7 @@ private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart4;
 			this->toolStrip1->Location = System::Drawing::Point(4, 5);
 			this->toolStrip1->Name = L"toolStrip1";
 			this->toolStrip1->Padding = System::Windows::Forms::Padding(0, 0, 3, 0);
-			this->toolStrip1->Size = System::Drawing::Size(2830, 25);
+			this->toolStrip1->Size = System::Drawing::Size(1908, 25);
 			this->toolStrip1->TabIndex = 15;
 			this->toolStrip1->Text = L"toolStrip1";
 			// 
@@ -448,11 +453,12 @@ private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart4;
 			this->tabControl1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(2846, 1520);
+			this->tabControl1->Size = System::Drawing::Size(1924, 1050);
 			this->tabControl1->TabIndex = 16;
 			// 
 			// TestProblem
 			// 
+			this->TestProblem->Controls->Add(this->IsHalfStep);
 			this->TestProblem->Controls->Add(this->dataGridView1);
 			this->TestProblem->Controls->Add(this->toolStrip1);
 			this->TestProblem->Controls->Add(this->button1);
@@ -462,14 +468,26 @@ private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart4;
 			this->TestProblem->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->TestProblem->Name = L"TestProblem";
 			this->TestProblem->Padding = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->TestProblem->Size = System::Drawing::Size(2838, 1487);
+			this->TestProblem->Size = System::Drawing::Size(1916, 1017);
 			this->TestProblem->TabIndex = 0;
 			this->TestProblem->Text = L"Test Problem";
 			this->TestProblem->UseVisualStyleBackColor = true;
 			this->TestProblem->Click += gcnew System::EventHandler(this, &Form1::tabPage1_Click);
 			// 
+			// IsHalfStep
+			// 
+			this->IsHalfStep->AutoSize = true;
+			this->IsHalfStep->Location = System::Drawing::Point(1071, 583);
+			this->IsHalfStep->Name = L"IsHalfStep";
+			this->IsHalfStep->Size = System::Drawing::Size(164, 24);
+			this->IsHalfStep->TabIndex = 16;
+			this->IsHalfStep->Text = L"Половинный шаг";
+			this->IsHalfStep->UseVisualStyleBackColor = true;
+			this->IsHalfStep->CheckedChanged += gcnew System::EventHandler(this, &Form1::checkBox1_CheckedChanged_1);
+			// 
 			// MainProblem
 			// 
+			this->MainProblem->Controls->Add(this->IsHalfStepMain);
 			this->MainProblem->Controls->Add(this->chart4);
 			this->MainProblem->Controls->Add(this->chart3);
 			this->MainProblem->Controls->Add(this->chart2);
@@ -480,10 +498,36 @@ private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart4;
 			this->MainProblem->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->MainProblem->Name = L"MainProblem";
 			this->MainProblem->Padding = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->MainProblem->Size = System::Drawing::Size(2838, 1487);
+			this->MainProblem->Size = System::Drawing::Size(1916, 1017);
 			this->MainProblem->TabIndex = 1;
 			this->MainProblem->Text = L"MainProblem";
 			this->MainProblem->UseVisualStyleBackColor = true;
+			// 
+			// chart4
+			// 
+			this->chart4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			chartArea2->AxisX->LabelStyle->Format = L"F2";
+			chartArea2->AxisX->Title = L"x";
+			chartArea2->AxisY->LabelStyle->Format = L"F2";
+			chartArea2->AxisY->Title = L"u`(x)";
+			chartArea2->Name = L"ChartArea1";
+			this->chart4->ChartAreas->Add(chartArea2);
+			legend2->Name = L"Legend1";
+			this->chart4->Legends->Add(legend2);
+			this->chart4->Location = System::Drawing::Point(4, 467);
+			this->chart4->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->chart4->Name = L"chart4";
+			series3->ChartArea = L"ChartArea1";
+			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series3->Color = System::Drawing::Color::Red;
+			series3->Legend = L"Legend1";
+			series3->Name = L"Приближенное значение";
+			this->chart4->Series->Add(series3);
+			this->chart4->Size = System::Drawing::Size(1404, 448);
+			this->chart4->TabIndex = 17;
+			this->chart4->Text = L"chart4";
+			this->chart4->Click += gcnew System::EventHandler(this, &Form1::chart4_Click);
 			// 
 			// chart3
 			// 
@@ -861,38 +905,22 @@ private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart4;
 			this->dataGridView2->Size = System::Drawing::Size(2847, 378);
 			this->dataGridView2->TabIndex = 1;
 			// 
-			// chart4
+			// IsHalfStepMain
 			// 
-			this->chart4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			chartArea2->AxisX->LabelStyle->Format = L"F2";
-			chartArea2->AxisX->Title = L"x";
-			chartArea2->AxisY->LabelStyle->Format = L"F2";
-			chartArea2->AxisY->Title = L"u`(x)";
-			chartArea2->Name = L"ChartArea1";
-			this->chart4->ChartAreas->Add(chartArea2);
-			legend2->Name = L"Legend1";
-			this->chart4->Legends->Add(legend2);
-			this->chart4->Location = System::Drawing::Point(4, 467);
-			this->chart4->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->chart4->Name = L"chart4";
-			series3->ChartArea = L"ChartArea1";
-			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series3->Color = System::Drawing::Color::Red;
-			series3->Legend = L"Legend1";
-			series3->Name = L"Приближенное значение";
-			this->chart4->Series->Add(series3);
-			this->chart4->Size = System::Drawing::Size(1404, 448);
-			this->chart4->TabIndex = 17;
-			this->chart4->Text = L"chart4";
-			this->chart4->Click += gcnew System::EventHandler(this, &Form1::chart4_Click);
+			this->IsHalfStepMain->AutoSize = true;
+			this->IsHalfStepMain->Location = System::Drawing::Point(1254, 877);
+			this->IsHalfStepMain->Name = L"IsHalfStepMain";
+			this->IsHalfStepMain->Size = System::Drawing::Size(135, 24);
+			this->IsHalfStepMain->TabIndex = 18;
+			this->IsHalfStepMain->Text = L"Use Half Step";
+			this->IsHalfStepMain->UseVisualStyleBackColor = true;
 			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->ClientSize = System::Drawing::Size(2846, 1520);
+			this->ClientSize = System::Drawing::Size(1924, 1050);
 			this->Controls->Add(this->tabControl1);
 			this->Name = L"Form1";
 			this->Text = L"/";
@@ -905,12 +933,13 @@ private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart4;
 			this->TestProblem->ResumeLayout(false);
 			this->TestProblem->PerformLayout();
 			this->MainProblem->ResumeLayout(false);
+			this->MainProblem->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart4))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart3))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart2))->EndInit();
 			this->panel2->ResumeLayout(false);
 			this->panel2->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart4))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -927,13 +956,14 @@ private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart4;
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		dataGridView1->DataSource = nullptr;
 
+		bool half_step = IsHalfStep->Checked;
 		double x0 = Double::Parse(X0Input->Text);
 		double xend = Double::Parse(XEndInput->Text);
 		double h = Double::Parse(HInput->Text);
 		double u0 = Double::Parse(U0Input->Text);
 		double eps = Double::Parse(EpsilonInput->Text);
 		bool check_dinamic = IsDinamicStepChoose->Checked;
-		solver = gcnew Sample(2, x0,xend,h,u0,eps,check_dinamic);  
+		solver = gcnew Sample(2, x0,xend,h,u0,eps,check_dinamic, half_step);  
 		solver->MethodRungeKutta();
 		solver->PrintData();
 
@@ -962,6 +992,7 @@ private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart4;
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		dataGridView2->DataSource = nullptr;
 
+		bool half_step_main = IsHalfStepMain->Checked;
 		double m_in = Double::Parse(m->Text);
 		double c_in = Double::Parse(c->Text);
 		double k_in = Double::Parse(k->Text);
@@ -976,7 +1007,7 @@ private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart4;
 		bool IsDinamicStep_in = IsDinamicStep2->Checked;
 
 
-		sourse = gcnew MainTask(m_in, c_in, k_in, k_second_in, u_0_in, u_f_d_in, x_0_in, x_end_in, start_h_in, max_operation_in, epsilon_in, IsDinamicStep_in );
+		sourse = gcnew MainTask(m_in, c_in, k_in, k_second_in, u_0_in, u_f_d_in, x_0_in, x_end_in, start_h_in, max_operation_in, epsilon_in, IsDinamicStep_in, half_step_main);
 		sourse->MRK4();
 		sourse->PrintData();
 		dataGridView2->AutoGenerateColumns = true;
@@ -1046,6 +1077,8 @@ private: System::Void m_TextChanged(System::Object^ sender, System::EventArgs^ e
 }
 
 private: System::Void chart4_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void checkBox1_CheckedChanged_1(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 	

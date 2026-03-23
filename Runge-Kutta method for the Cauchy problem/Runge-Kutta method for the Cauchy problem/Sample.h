@@ -26,11 +26,13 @@ public ref class Sample
 public:
 	//тест данные
 	Sample() {
+		this->IsHalfStep = 0;
 		CreateSampleData(2, 0.0, 1.0, 0.01, 1.0, 0.00000001, 1);
 		results = gcnew BindingList<StepResult^>();
 	}
 	
-	Sample(int var, double x_0, double x_end, double h, double u_0, double epsilon, bool IsDinamicStep) {
+	Sample(int var, double x_0, double x_end, double h, double u_0, double epsilon, bool IsDinamicStep, bool IsHalfStep) {
+		this->IsHalfStep = IsHalfStep;
 		CreateSampleData(var, x_0, x_end, h, u_0, epsilon, IsDinamicStep);
 		results = gcnew BindingList<StepResult^>();
 	}
@@ -46,4 +48,5 @@ private:
 	double u_0;
 	double epsilon;
 	bool IsDinamicStep;
+	bool IsHalfStep;
 };

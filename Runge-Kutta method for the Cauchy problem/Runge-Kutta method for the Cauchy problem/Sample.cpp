@@ -150,12 +150,17 @@ void Sample::MethodRungeKutta() {
 		row->counter_mul = mul_counter;
 		row->counter_div = div_counter;
 		if (IsPositive) {
-
-			u_curr = row->u_approximate;
+			if (IsHalfStep) {
+				u_curr = row->u_2_approximate;
+			}
+			else {
+				u_curr = row->u_approximate;
+			}
 			x_curr = row->x;
 		}
 		//checks out_of ranges
-		next_h = std::min(x_end - row->x, next_h);
+		/*next_h = std::min(x_end - row->x, next_h);*/
+		next_h = std::min(x_end - x_curr, next_h);
 
 		div_counter = 0;
 		mul_counter = 0;

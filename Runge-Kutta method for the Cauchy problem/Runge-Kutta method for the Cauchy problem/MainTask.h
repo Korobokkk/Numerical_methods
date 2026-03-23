@@ -23,6 +23,7 @@ ref class MainTask
 {
 public:
 	MainTask() {
+		this->IsHalfStep;
 		this->m = 0.01;
 		this->c = 0.15;
 		this->k = 2.0;
@@ -37,7 +38,7 @@ public:
 		this->IsDinamicStep = 1;
 		MainResults = gcnew BindingList<StepResultMainTask^>();
 	}
-	MainTask(double m, double c, double k, double k_second, double u_0, double u_first_dif, double x_0, double x_end, double h, double max_operation, double epsilon, bool IsDinamicStep) {
+	MainTask(double m, double c, double k, double k_second, double u_0, double u_first_dif, double x_0, double x_end, double h, double max_operation, double epsilon, bool IsDinamicStep, bool IsHalfStep) {
 		this->m = m;
 		this->c = c;
 		this->k = k;
@@ -50,6 +51,7 @@ public:
 		this->max_operation = max_operation;
 		this->epsilon = epsilon;
 		this->IsDinamicStep = IsDinamicStep;
+		this->IsHalfStep = IsHalfStep;
 		MainResults = gcnew BindingList<StepResultMainTask^>();
 	};
 	double f2(double y1, double y2);
@@ -71,5 +73,6 @@ private:
 	double max_operation;
 	double epsilon;
 	bool IsDinamicStep;
+	bool IsHalfStep;
 };
 
