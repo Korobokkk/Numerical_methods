@@ -167,17 +167,18 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			this->EpsilonInput = (gcnew System::Windows::Forms::TextBox());
 			this->IsDinamicStepChoose = (gcnew System::Windows::Forms::CheckBox());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->IsHalfStep = (gcnew System::Windows::Forms::CheckBox());
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->toolStrip1 = (gcnew System::Windows::Forms::ToolStrip());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->TestProblem = (gcnew System::Windows::Forms::TabPage());
-			this->IsHalfStep = (gcnew System::Windows::Forms::CheckBox());
 			this->MainProblem = (gcnew System::Windows::Forms::TabPage());
 			this->chart4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->chart3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->chart2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->IsHalfStepMain = (gcnew System::Windows::Forms::CheckBox());
 			this->textBox16 = (gcnew System::Windows::Forms::TextBox());
 			this->m = (gcnew System::Windows::Forms::TextBox());
 			this->c = (gcnew System::Windows::Forms::TextBox());
@@ -203,7 +204,6 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			this->IsDinamicStep2 = (gcnew System::Windows::Forms::CheckBox());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
-			this->IsHalfStepMain = (gcnew System::Windows::Forms::CheckBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
@@ -222,21 +222,21 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			this->dataGridView1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(30, 638);
-			this->dataGridView1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->dataGridView1->Location = System::Drawing::Point(20, 520);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 62;
 			this->dataGridView1->RowTemplate->Height = 28;
-			this->dataGridView1->Size = System::Drawing::Size(1888, 378);
+			this->dataGridView1->Size = System::Drawing::Size(1563, 246);
 			this->dataGridView1->TabIndex = 0;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Form1::dataGridView1_CellContentClick);
 			// 
 			// button1
 			// 
 			this->button1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
-			this->button1->Location = System::Drawing::Point(1668, 567);
+			this->button1->Location = System::Drawing::Point(1416, 474);
+			this->button1->Margin = System::Windows::Forms::Padding(2);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(218, 57);
+			this->button1->Size = System::Drawing::Size(145, 37);
 			this->button1->TabIndex = 1;
 			this->button1->Text = L"Расчитать";
 			this->button1->UseVisualStyleBackColor = true;
@@ -245,10 +245,9 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// X0Input
 			// 
 			this->X0Input->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->X0Input->Location = System::Drawing::Point(21, 118);
-			this->X0Input->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->X0Input->Location = System::Drawing::Point(14, 77);
 			this->X0Input->Name = L"X0Input";
-			this->X0Input->Size = System::Drawing::Size(148, 26);
+			this->X0Input->Size = System::Drawing::Size(100, 20);
 			this->X0Input->TabIndex = 2;
 			this->X0Input->Text = L"0,0";
 			this->X0Input->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -257,11 +256,10 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// textBox2
 			// 
 			this->textBox2->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->textBox2->Location = System::Drawing::Point(21, 92);
-			this->textBox2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->textBox2->Location = System::Drawing::Point(14, 60);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->ReadOnly = true;
-			this->textBox2->Size = System::Drawing::Size(148, 26);
+			this->textBox2->Size = System::Drawing::Size(100, 20);
 			this->textBox2->TabIndex = 3;
 			this->textBox2->Text = L"x_0";
 			this->textBox2->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -270,11 +268,10 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// textBox3
 			// 
 			this->textBox3->BackColor = System::Drawing::SystemColors::Info;
-			this->textBox3->Location = System::Drawing::Point(166, 92);
-			this->textBox3->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->textBox3->Location = System::Drawing::Point(111, 60);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->ReadOnly = true;
-			this->textBox3->Size = System::Drawing::Size(148, 26);
+			this->textBox3->Size = System::Drawing::Size(100, 20);
 			this->textBox3->TabIndex = 5;
 			this->textBox3->Text = L"x_end";
 			this->textBox3->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -283,10 +280,9 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// XEndInput
 			// 
 			this->XEndInput->BackColor = System::Drawing::SystemColors::Info;
-			this->XEndInput->Location = System::Drawing::Point(166, 118);
-			this->XEndInput->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->XEndInput->Location = System::Drawing::Point(111, 77);
 			this->XEndInput->Name = L"XEndInput";
-			this->XEndInput->Size = System::Drawing::Size(148, 26);
+			this->XEndInput->Size = System::Drawing::Size(100, 20);
 			this->XEndInput->TabIndex = 4;
 			this->XEndInput->Text = L"1,0";
 			this->XEndInput->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -295,11 +291,10 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// textBox5
 			// 
 			this->textBox5->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->textBox5->Location = System::Drawing::Point(312, 92);
-			this->textBox5->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->textBox5->Location = System::Drawing::Point(208, 60);
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->ReadOnly = true;
-			this->textBox5->Size = System::Drawing::Size(148, 26);
+			this->textBox5->Size = System::Drawing::Size(100, 20);
 			this->textBox5->TabIndex = 7;
 			this->textBox5->Text = L"Шаг (h):";
 			this->textBox5->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -308,10 +303,9 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// HInput
 			// 
 			this->HInput->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->HInput->Location = System::Drawing::Point(312, 118);
-			this->HInput->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->HInput->Location = System::Drawing::Point(208, 77);
 			this->HInput->Name = L"HInput";
-			this->HInput->Size = System::Drawing::Size(148, 26);
+			this->HInput->Size = System::Drawing::Size(100, 20);
 			this->HInput->TabIndex = 6;
 			this->HInput->Text = L"0,01";
 			this->HInput->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -320,11 +314,10 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// textBox7
 			// 
 			this->textBox7->BackColor = System::Drawing::SystemColors::Info;
-			this->textBox7->Location = System::Drawing::Point(458, 92);
-			this->textBox7->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->textBox7->Location = System::Drawing::Point(305, 60);
 			this->textBox7->Name = L"textBox7";
 			this->textBox7->ReadOnly = true;
-			this->textBox7->Size = System::Drawing::Size(148, 26);
+			this->textBox7->Size = System::Drawing::Size(100, 20);
 			this->textBox7->TabIndex = 9;
 			this->textBox7->Text = L"u_0:";
 			this->textBox7->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -333,10 +326,9 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// U0Input
 			// 
 			this->U0Input->BackColor = System::Drawing::SystemColors::Info;
-			this->U0Input->Location = System::Drawing::Point(458, 118);
-			this->U0Input->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->U0Input->Location = System::Drawing::Point(305, 77);
 			this->U0Input->Name = L"U0Input";
-			this->U0Input->Size = System::Drawing::Size(148, 26);
+			this->U0Input->Size = System::Drawing::Size(100, 20);
 			this->U0Input->TabIndex = 8;
 			this->U0Input->Text = L"1,0";
 			this->U0Input->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -345,11 +337,10 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// textBox9
 			// 
 			this->textBox9->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->textBox9->Location = System::Drawing::Point(600, 92);
-			this->textBox9->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->textBox9->Location = System::Drawing::Point(400, 60);
 			this->textBox9->Name = L"textBox9";
 			this->textBox9->ReadOnly = true;
-			this->textBox9->Size = System::Drawing::Size(148, 26);
+			this->textBox9->Size = System::Drawing::Size(100, 20);
 			this->textBox9->TabIndex = 11;
 			this->textBox9->Text = L"Epsilon:";
 			this->textBox9->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -358,10 +349,9 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// EpsilonInput
 			// 
 			this->EpsilonInput->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->EpsilonInput->Location = System::Drawing::Point(600, 118);
-			this->EpsilonInput->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->EpsilonInput->Location = System::Drawing::Point(400, 77);
 			this->EpsilonInput->Name = L"EpsilonInput";
-			this->EpsilonInput->Size = System::Drawing::Size(148, 26);
+			this->EpsilonInput->Size = System::Drawing::Size(100, 20);
 			this->EpsilonInput->TabIndex = 10;
 			this->EpsilonInput->Text = L"0,00000001";
 			this->EpsilonInput->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -370,10 +360,9 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// IsDinamicStepChoose
 			// 
 			this->IsDinamicStepChoose->BackColor = System::Drawing::SystemColors::ActiveBorder;
-			this->IsDinamicStepChoose->Location = System::Drawing::Point(759, 92);
-			this->IsDinamicStepChoose->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->IsDinamicStepChoose->Location = System::Drawing::Point(506, 60);
 			this->IsDinamicStepChoose->Name = L"IsDinamicStepChoose";
-			this->IsDinamicStepChoose->Size = System::Drawing::Size(243, 57);
+			this->IsDinamicStepChoose->Size = System::Drawing::Size(162, 37);
 			this->IsDinamicStepChoose->TabIndex = 12;
 			this->IsDinamicStepChoose->Text = L"Адаптивность шага";
 			this->IsDinamicStepChoose->UseVisualStyleBackColor = false;
@@ -381,6 +370,7 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// panel1
 			// 
 			this->panel1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
+			this->panel1->Controls->Add(this->IsHalfStep);
 			this->panel1->Controls->Add(this->EpsilonInput);
 			this->panel1->Controls->Add(this->U0Input);
 			this->panel1->Controls->Add(this->textBox2);
@@ -392,11 +382,22 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			this->panel1->Controls->Add(this->HInput);
 			this->panel1->Controls->Add(this->textBox5);
 			this->panel1->Controls->Add(this->IsDinamicStepChoose);
-			this->panel1->Location = System::Drawing::Point(30, 475);
-			this->panel1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->panel1->Location = System::Drawing::Point(20, 414);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(1124, 154);
+			this->panel1->Size = System::Drawing::Size(749, 100);
 			this->panel1->TabIndex = 13;
+			// 
+			// IsHalfStep
+			// 
+			this->IsHalfStep->AutoSize = true;
+			this->IsHalfStep->Location = System::Drawing::Point(14, 26);
+			this->IsHalfStep->Margin = System::Windows::Forms::Padding(2);
+			this->IsHalfStep->Name = L"IsHalfStep";
+			this->IsHalfStep->Size = System::Drawing::Size(112, 17);
+			this->IsHalfStep->TabIndex = 16;
+			this->IsHalfStep->Text = L"Половинный шаг";
+			this->IsHalfStep->UseVisualStyleBackColor = true;
+			this->IsHalfStep->CheckedChanged += gcnew System::EventHandler(this, &Form1::checkBox1_CheckedChanged_1);
 			// 
 			// chart1
 			// 
@@ -406,8 +407,7 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			this->chart1->ChartAreas->Add(chartArea1);
 			legend1->Name = L"Legend1";
 			this->chart1->Legends->Add(legend1);
-			this->chart1->Location = System::Drawing::Point(106, 69);
-			this->chart1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->chart1->Location = System::Drawing::Point(71, 45);
 			this->chart1->Name = L"chart1";
 			series1->ChartArea = L"ChartArea1";
 			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
@@ -421,17 +421,17 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			series2->Name = L"Истинное значение";
 			this->chart1->Series->Add(series1);
 			this->chart1->Series->Add(series2);
-			this->chart1->Size = System::Drawing::Size(1224, 788);
+			this->chart1->Size = System::Drawing::Size(1120, 512);
 			this->chart1->TabIndex = 14;
 			this->chart1->Text = L"chart1";
 			// 
 			// toolStrip1
 			// 
 			this->toolStrip1->ImageScalingSize = System::Drawing::Size(24, 24);
-			this->toolStrip1->Location = System::Drawing::Point(4, 5);
+			this->toolStrip1->Location = System::Drawing::Point(3, 3);
 			this->toolStrip1->Name = L"toolStrip1";
-			this->toolStrip1->Padding = System::Windows::Forms::Padding(0, 0, 3, 0);
-			this->toolStrip1->Size = System::Drawing::Size(1908, 25);
+			this->toolStrip1->Padding = System::Windows::Forms::Padding(0, 0, 2, 0);
+			this->toolStrip1->Size = System::Drawing::Size(1573, 25);
 			this->toolStrip1->TabIndex = 15;
 			this->toolStrip1->Text = L"toolStrip1";
 			// 
@@ -450,55 +450,39 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			this->tabControl1->Controls->Add(this->MainProblem);
 			this->tabControl1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->tabControl1->Location = System::Drawing::Point(0, 0);
-			this->tabControl1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(1924, 1050);
+			this->tabControl1->Size = System::Drawing::Size(1587, 787);
 			this->tabControl1->TabIndex = 16;
 			// 
 			// TestProblem
 			// 
-			this->TestProblem->Controls->Add(this->IsHalfStep);
 			this->TestProblem->Controls->Add(this->dataGridView1);
 			this->TestProblem->Controls->Add(this->toolStrip1);
 			this->TestProblem->Controls->Add(this->button1);
 			this->TestProblem->Controls->Add(this->chart1);
 			this->TestProblem->Controls->Add(this->panel1);
-			this->TestProblem->Location = System::Drawing::Point(4, 29);
-			this->TestProblem->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->TestProblem->Location = System::Drawing::Point(4, 22);
 			this->TestProblem->Name = L"TestProblem";
-			this->TestProblem->Padding = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->TestProblem->Size = System::Drawing::Size(1916, 1017);
+			this->TestProblem->Padding = System::Windows::Forms::Padding(3);
+			this->TestProblem->Size = System::Drawing::Size(1579, 761);
 			this->TestProblem->TabIndex = 0;
 			this->TestProblem->Text = L"Test Problem";
 			this->TestProblem->UseVisualStyleBackColor = true;
 			this->TestProblem->Click += gcnew System::EventHandler(this, &Form1::tabPage1_Click);
 			// 
-			// IsHalfStep
-			// 
-			this->IsHalfStep->AutoSize = true;
-			this->IsHalfStep->Location = System::Drawing::Point(1071, 583);
-			this->IsHalfStep->Name = L"IsHalfStep";
-			this->IsHalfStep->Size = System::Drawing::Size(164, 24);
-			this->IsHalfStep->TabIndex = 16;
-			this->IsHalfStep->Text = L"Половинный шаг";
-			this->IsHalfStep->UseVisualStyleBackColor = true;
-			this->IsHalfStep->CheckedChanged += gcnew System::EventHandler(this, &Form1::checkBox1_CheckedChanged_1);
-			// 
 			// MainProblem
 			// 
-			this->MainProblem->Controls->Add(this->IsHalfStepMain);
 			this->MainProblem->Controls->Add(this->chart4);
 			this->MainProblem->Controls->Add(this->chart3);
 			this->MainProblem->Controls->Add(this->chart2);
 			this->MainProblem->Controls->Add(this->panel2);
 			this->MainProblem->Controls->Add(this->button2);
 			this->MainProblem->Controls->Add(this->dataGridView2);
-			this->MainProblem->Location = System::Drawing::Point(4, 29);
-			this->MainProblem->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->MainProblem->Location = System::Drawing::Point(4, 22);
 			this->MainProblem->Name = L"MainProblem";
-			this->MainProblem->Padding = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->MainProblem->Size = System::Drawing::Size(1916, 1017);
+			this->MainProblem->Padding = System::Windows::Forms::Padding(3);
+			this->MainProblem->Size = System::Drawing::Size(1579, 761);
 			this->MainProblem->TabIndex = 1;
 			this->MainProblem->Text = L"MainProblem";
 			this->MainProblem->UseVisualStyleBackColor = true;
@@ -515,8 +499,7 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			this->chart4->ChartAreas->Add(chartArea2);
 			legend2->Name = L"Legend1";
 			this->chart4->Legends->Add(legend2);
-			this->chart4->Location = System::Drawing::Point(4, 467);
-			this->chart4->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->chart4->Location = System::Drawing::Point(3, 298);
 			this->chart4->Name = L"chart4";
 			series3->ChartArea = L"ChartArea1";
 			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
@@ -524,7 +507,7 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			series3->Legend = L"Legend1";
 			series3->Name = L"Приближенное значение";
 			this->chart4->Series->Add(series3);
-			this->chart4->Size = System::Drawing::Size(1404, 448);
+			this->chart4->Size = System::Drawing::Size(690, 269);
 			this->chart4->TabIndex = 17;
 			this->chart4->Text = L"chart4";
 			this->chart4->Click += gcnew System::EventHandler(this, &Form1::chart4_Click);
@@ -543,8 +526,7 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			this->chart3->ChartAreas->Add(chartArea3);
 			legend3->Name = L"Legend1";
 			this->chart3->Legends->Add(legend3);
-			this->chart3->Location = System::Drawing::Point(1416, 9);
-			this->chart3->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->chart3->Location = System::Drawing::Point(1001, 0);
 			this->chart3->Name = L"chart3";
 			series4->BorderWidth = 2;
 			series4->ChartArea = L"ChartArea1";
@@ -553,7 +535,7 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			series4->Legend = L"Legend1";
 			series4->Name = L"Фазовый портрет";
 			this->chart3->Series->Add(series4);
-			this->chart3->Size = System::Drawing::Size(1418, 982);
+			this->chart3->Size = System::Drawing::Size(572, 394);
 			this->chart3->TabIndex = 16;
 			this->chart3->Text = L"chart3";
 			// 
@@ -569,8 +551,7 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			this->chart2->ChartAreas->Add(chartArea4);
 			legend4->Name = L"Legend1";
 			this->chart2->Legends->Add(legend4);
-			this->chart2->Location = System::Drawing::Point(4, 9);
-			this->chart2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->chart2->Location = System::Drawing::Point(-10, 6);
 			this->chart2->Name = L"chart2";
 			series5->ChartArea = L"ChartArea1";
 			series5->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
@@ -578,13 +559,14 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			series5->Legend = L"Legend1";
 			series5->Name = L"Приближенное значение";
 			this->chart2->Series->Add(series5);
-			this->chart2->Size = System::Drawing::Size(1404, 448);
+			this->chart2->Size = System::Drawing::Size(703, 266);
 			this->chart2->TabIndex = 15;
 			this->chart2->Text = L"chart2";
 			// 
 			// panel2
 			// 
 			this->panel2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
+			this->panel2->Controls->Add(this->IsHalfStepMain);
 			this->panel2->Controls->Add(this->textBox16);
 			this->panel2->Controls->Add(this->m);
 			this->panel2->Controls->Add(this->c);
@@ -608,20 +590,30 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			this->panel2->Controls->Add(this->start_h);
 			this->panel2->Controls->Add(this->textBox15);
 			this->panel2->Controls->Add(this->IsDinamicStep2);
-			this->panel2->Location = System::Drawing::Point(9, 938);
-			this->panel2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->panel2->Location = System::Drawing::Point(3, 515);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(2526, 154);
+			this->panel2->Size = System::Drawing::Size(1441, 100);
 			this->panel2->TabIndex = 14;
+			this->panel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Form1::panel2_Paint);
+			// 
+			// IsHalfStepMain
+			// 
+			this->IsHalfStepMain->AutoSize = true;
+			this->IsHalfStepMain->Location = System::Drawing::Point(3, 38);
+			this->IsHalfStepMain->Margin = System::Windows::Forms::Padding(2);
+			this->IsHalfStepMain->Name = L"IsHalfStepMain";
+			this->IsHalfStepMain->Size = System::Drawing::Size(92, 17);
+			this->IsHalfStepMain->TabIndex = 18;
+			this->IsHalfStepMain->Text = L"Use Half Step";
+			this->IsHalfStepMain->UseVisualStyleBackColor = true;
 			// 
 			// textBox16
 			// 
 			this->textBox16->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->textBox16->Location = System::Drawing::Point(4, 92);
-			this->textBox16->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->textBox16->Location = System::Drawing::Point(3, 60);
 			this->textBox16->Name = L"textBox16";
 			this->textBox16->ReadOnly = true;
-			this->textBox16->Size = System::Drawing::Size(148, 26);
+			this->textBox16->Size = System::Drawing::Size(100, 20);
 			this->textBox16->TabIndex = 22;
 			this->textBox16->Text = L"m";
 			this->textBox16->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -629,10 +621,9 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// m
 			// 
 			this->m->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->m->Location = System::Drawing::Point(4, 118);
-			this->m->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->m->Location = System::Drawing::Point(3, 77);
 			this->m->Name = L"m";
-			this->m->Size = System::Drawing::Size(148, 26);
+			this->m->Size = System::Drawing::Size(100, 20);
 			this->m->TabIndex = 21;
 			this->m->Text = L"0,01";
 			this->m->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -641,10 +632,9 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// c
 			// 
 			this->c->BackColor = System::Drawing::SystemColors::Info;
-			this->c->Location = System::Drawing::Point(150, 118);
-			this->c->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->c->Location = System::Drawing::Point(100, 77);
 			this->c->Name = L"c";
-			this->c->Size = System::Drawing::Size(148, 26);
+			this->c->Size = System::Drawing::Size(100, 20);
 			this->c->TabIndex = 23;
 			this->c->Text = L"0,15";
 			this->c->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -652,11 +642,10 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// textBox27
 			// 
 			this->textBox27->BackColor = System::Drawing::SystemColors::Info;
-			this->textBox27->Location = System::Drawing::Point(150, 92);
-			this->textBox27->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->textBox27->Location = System::Drawing::Point(100, 60);
 			this->textBox27->Name = L"textBox27";
 			this->textBox27->ReadOnly = true;
-			this->textBox27->Size = System::Drawing::Size(148, 26);
+			this->textBox27->Size = System::Drawing::Size(100, 20);
 			this->textBox27->TabIndex = 24;
 			this->textBox27->Text = L"c";
 			this->textBox27->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -664,10 +653,9 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// x_0
 			// 
 			this->x_0->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->x_0->Location = System::Drawing::Point(885, 118);
-			this->x_0->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->x_0->Location = System::Drawing::Point(590, 77);
 			this->x_0->Name = L"x_0";
-			this->x_0->Size = System::Drawing::Size(148, 26);
+			this->x_0->Size = System::Drawing::Size(100, 20);
 			this->x_0->TabIndex = 2;
 			this->x_0->Text = L"0,0";
 			this->x_0->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -675,11 +663,10 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// textBox6
 			// 
 			this->textBox6->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->textBox6->Location = System::Drawing::Point(885, 92);
-			this->textBox6->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->textBox6->Location = System::Drawing::Point(590, 60);
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->ReadOnly = true;
-			this->textBox6->Size = System::Drawing::Size(148, 26);
+			this->textBox6->Size = System::Drawing::Size(100, 20);
 			this->textBox6->TabIndex = 3;
 			this->textBox6->Text = L"x_0";
 			this->textBox6->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -687,10 +674,9 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// u_f_d
 			// 
 			this->u_f_d->BackColor = System::Drawing::SystemColors::Info;
-			this->u_f_d->Location = System::Drawing::Point(735, 118);
-			this->u_f_d->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->u_f_d->Location = System::Drawing::Point(490, 77);
 			this->u_f_d->Name = L"u_f_d";
-			this->u_f_d->Size = System::Drawing::Size(148, 26);
+			this->u_f_d->Size = System::Drawing::Size(100, 20);
 			this->u_f_d->TabIndex = 19;
 			this->u_f_d->Text = L"0,0";
 			this->u_f_d->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -698,11 +684,10 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// textBox18
 			// 
 			this->textBox18->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->textBox18->Location = System::Drawing::Point(298, 92);
-			this->textBox18->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->textBox18->Location = System::Drawing::Point(199, 60);
 			this->textBox18->Name = L"textBox18";
 			this->textBox18->ReadOnly = true;
-			this->textBox18->Size = System::Drawing::Size(148, 26);
+			this->textBox18->Size = System::Drawing::Size(100, 20);
 			this->textBox18->TabIndex = 14;
 			this->textBox18->Text = L"k";
 			this->textBox18->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -710,10 +695,9 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// k
 			// 
 			this->k->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->k->Location = System::Drawing::Point(298, 118);
-			this->k->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->k->Location = System::Drawing::Point(199, 77);
 			this->k->Name = L"k";
-			this->k->Size = System::Drawing::Size(148, 26);
+			this->k->Size = System::Drawing::Size(100, 20);
 			this->k->TabIndex = 13;
 			this->k->Text = L"2,0";
 			this->k->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -721,10 +705,9 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// k_second
 			// 
 			this->k_second->BackColor = System::Drawing::SystemColors::Info;
-			this->k_second->Location = System::Drawing::Point(444, 118);
-			this->k_second->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->k_second->Location = System::Drawing::Point(296, 77);
 			this->k_second->Name = L"k_second";
-			this->k_second->Size = System::Drawing::Size(148, 26);
+			this->k_second->Size = System::Drawing::Size(100, 20);
 			this->k_second->TabIndex = 15;
 			this->k_second->Text = L"2,0";
 			this->k_second->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -732,11 +715,10 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// textBox22
 			// 
 			this->textBox22->BackColor = System::Drawing::SystemColors::Info;
-			this->textBox22->Location = System::Drawing::Point(444, 92);
-			this->textBox22->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->textBox22->Location = System::Drawing::Point(296, 60);
 			this->textBox22->Name = L"textBox22";
 			this->textBox22->ReadOnly = true;
-			this->textBox22->Size = System::Drawing::Size(148, 26);
+			this->textBox22->Size = System::Drawing::Size(100, 20);
 			this->textBox22->TabIndex = 16;
 			this->textBox22->Text = L"k*";
 			this->textBox22->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -744,11 +726,10 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// textBox23
 			// 
 			this->textBox23->BackColor = System::Drawing::SystemColors::Info;
-			this->textBox23->Location = System::Drawing::Point(735, 92);
-			this->textBox23->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->textBox23->Location = System::Drawing::Point(490, 60);
 			this->textBox23->Name = L"textBox23";
 			this->textBox23->ReadOnly = true;
-			this->textBox23->Size = System::Drawing::Size(148, 26);
+			this->textBox23->Size = System::Drawing::Size(100, 20);
 			this->textBox23->TabIndex = 20;
 			this->textBox23->Text = L"u`(x_0)";
 			this->textBox23->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -756,10 +737,9 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// u_0
 			// 
 			this->u_0->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->u_0->Location = System::Drawing::Point(590, 118);
-			this->u_0->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->u_0->Location = System::Drawing::Point(393, 77);
 			this->u_0->Name = L"u_0";
-			this->u_0->Size = System::Drawing::Size(148, 26);
+			this->u_0->Size = System::Drawing::Size(100, 20);
 			this->u_0->TabIndex = 17;
 			this->u_0->Text = L"10,0";
 			this->u_0->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -767,11 +747,10 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// textBox25
 			// 
 			this->textBox25->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->textBox25->Location = System::Drawing::Point(590, 92);
-			this->textBox25->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->textBox25->Location = System::Drawing::Point(393, 60);
 			this->textBox25->Name = L"textBox25";
 			this->textBox25->ReadOnly = true;
-			this->textBox25->Size = System::Drawing::Size(148, 26);
+			this->textBox25->Size = System::Drawing::Size(100, 20);
 			this->textBox25->TabIndex = 18;
 			this->textBox25->Text = L"u(x_0)";
 			this->textBox25->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -780,10 +759,9 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// eps
 			// 
 			this->eps->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->eps->Location = System::Drawing::Point(1464, 118);
-			this->eps->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->eps->Location = System::Drawing::Point(976, 77);
 			this->eps->Name = L"eps";
-			this->eps->Size = System::Drawing::Size(148, 26);
+			this->eps->Size = System::Drawing::Size(100, 20);
 			this->eps->TabIndex = 10;
 			this->eps->Text = L"0,00000001";
 			this->eps->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -791,10 +769,9 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// max_iter
 			// 
 			this->max_iter->BackColor = System::Drawing::SystemColors::Info;
-			this->max_iter->Location = System::Drawing::Point(1322, 118);
-			this->max_iter->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->max_iter->Location = System::Drawing::Point(881, 77);
 			this->max_iter->Name = L"max_iter";
-			this->max_iter->Size = System::Drawing::Size(148, 26);
+			this->max_iter->Size = System::Drawing::Size(100, 20);
 			this->max_iter->TabIndex = 8;
 			this->max_iter->Text = L"10000";
 			this->max_iter->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -802,11 +779,10 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// textBox10
 			// 
 			this->textBox10->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->textBox10->Location = System::Drawing::Point(1464, 92);
-			this->textBox10->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->textBox10->Location = System::Drawing::Point(976, 60);
 			this->textBox10->Name = L"textBox10";
 			this->textBox10->ReadOnly = true;
-			this->textBox10->Size = System::Drawing::Size(148, 26);
+			this->textBox10->Size = System::Drawing::Size(100, 20);
 			this->textBox10->TabIndex = 11;
 			this->textBox10->Text = L"Epsilon:";
 			this->textBox10->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -814,10 +790,9 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// x_end
 			// 
 			this->x_end->BackColor = System::Drawing::SystemColors::Info;
-			this->x_end->Location = System::Drawing::Point(1030, 118);
-			this->x_end->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->x_end->Location = System::Drawing::Point(687, 77);
 			this->x_end->Name = L"x_end";
-			this->x_end->Size = System::Drawing::Size(148, 26);
+			this->x_end->Size = System::Drawing::Size(100, 20);
 			this->x_end->TabIndex = 4;
 			this->x_end->Text = L"1,0";
 			this->x_end->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -825,11 +800,10 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// textBox12
 			// 
 			this->textBox12->BackColor = System::Drawing::SystemColors::Info;
-			this->textBox12->Location = System::Drawing::Point(1030, 92);
-			this->textBox12->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->textBox12->Location = System::Drawing::Point(687, 60);
 			this->textBox12->Name = L"textBox12";
 			this->textBox12->ReadOnly = true;
-			this->textBox12->Size = System::Drawing::Size(148, 26);
+			this->textBox12->Size = System::Drawing::Size(100, 20);
 			this->textBox12->TabIndex = 5;
 			this->textBox12->Text = L"x_end";
 			this->textBox12->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -837,11 +811,10 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// textBox13
 			// 
 			this->textBox13->BackColor = System::Drawing::SystemColors::Info;
-			this->textBox13->Location = System::Drawing::Point(1322, 92);
-			this->textBox13->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->textBox13->Location = System::Drawing::Point(881, 60);
 			this->textBox13->Name = L"textBox13";
 			this->textBox13->ReadOnly = true;
-			this->textBox13->Size = System::Drawing::Size(148, 26);
+			this->textBox13->Size = System::Drawing::Size(100, 20);
 			this->textBox13->TabIndex = 9;
 			this->textBox13->Text = L"Max Iter";
 			this->textBox13->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -849,10 +822,9 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// start_h
 			// 
 			this->start_h->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->start_h->Location = System::Drawing::Point(1176, 118);
-			this->start_h->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->start_h->Location = System::Drawing::Point(784, 77);
 			this->start_h->Name = L"start_h";
-			this->start_h->Size = System::Drawing::Size(148, 26);
+			this->start_h->Size = System::Drawing::Size(100, 20);
 			this->start_h->TabIndex = 6;
 			this->start_h->Text = L"0,01";
 			this->start_h->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -860,11 +832,10 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// textBox15
 			// 
 			this->textBox15->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->textBox15->Location = System::Drawing::Point(1176, 92);
-			this->textBox15->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->textBox15->Location = System::Drawing::Point(784, 60);
 			this->textBox15->Name = L"textBox15";
 			this->textBox15->ReadOnly = true;
-			this->textBox15->Size = System::Drawing::Size(148, 26);
+			this->textBox15->Size = System::Drawing::Size(100, 20);
 			this->textBox15->TabIndex = 7;
 			this->textBox15->Text = L"Шаг (h):";
 			this->textBox15->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -872,10 +843,9 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// IsDinamicStep2
 			// 
 			this->IsDinamicStep2->BackColor = System::Drawing::SystemColors::ActiveBorder;
-			this->IsDinamicStep2->Location = System::Drawing::Point(1623, 92);
-			this->IsDinamicStep2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->IsDinamicStep2->Location = System::Drawing::Point(1082, 60);
 			this->IsDinamicStep2->Name = L"IsDinamicStep2";
-			this->IsDinamicStep2->Size = System::Drawing::Size(243, 57);
+			this->IsDinamicStep2->Size = System::Drawing::Size(162, 37);
 			this->IsDinamicStep2->TabIndex = 12;
 			this->IsDinamicStep2->Text = L"Адаптивность шага";
 			this->IsDinamicStep2->UseVisualStyleBackColor = false;
@@ -884,9 +854,10 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			// button2
 			// 
 			this->button2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
-			this->button2->Location = System::Drawing::Point(2613, 1028);
+			this->button2->Location = System::Drawing::Point(1432, 572);
+			this->button2->Margin = System::Windows::Forms::Padding(2);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(210, 66);
+			this->button2->Size = System::Drawing::Size(140, 43);
 			this->button2->TabIndex = 2;
 			this->button2->Text = L"Расчитать";
 			this->button2->UseVisualStyleBackColor = true;
@@ -897,31 +868,22 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			this->dataGridView2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->dataGridView2->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView2->Location = System::Drawing::Point(-8, 1102);
-			this->dataGridView2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->dataGridView2->Location = System::Drawing::Point(-4, 618);
 			this->dataGridView2->Name = L"dataGridView2";
 			this->dataGridView2->RowHeadersWidth = 62;
 			this->dataGridView2->RowTemplate->Height = 28;
-			this->dataGridView2->Size = System::Drawing::Size(2847, 378);
+			this->dataGridView2->Size = System::Drawing::Size(1583, 148);
 			this->dataGridView2->TabIndex = 1;
-			// 
-			// IsHalfStepMain
-			// 
-			this->IsHalfStepMain->AutoSize = true;
-			this->IsHalfStepMain->Location = System::Drawing::Point(1254, 877);
-			this->IsHalfStepMain->Name = L"IsHalfStepMain";
-			this->IsHalfStepMain->Size = System::Drawing::Size(135, 24);
-			this->IsHalfStepMain->TabIndex = 18;
-			this->IsHalfStepMain->Text = L"Use Half Step";
-			this->IsHalfStepMain->UseVisualStyleBackColor = true;
+			this->dataGridView2->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Form1::dataGridView2_CellContentClick);
 			// 
 			// Form1
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->ClientSize = System::Drawing::Size(1924, 1050);
+			this->ClientSize = System::Drawing::Size(1587, 787);
 			this->Controls->Add(this->tabControl1);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"Form1";
 			this->Text = L"/";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
@@ -933,7 +895,6 @@ private: System::Windows::Forms::CheckBox^ IsHalfStepMain;
 			this->TestProblem->ResumeLayout(false);
 			this->TestProblem->PerformLayout();
 			this->MainProblem->ResumeLayout(false);
-			this->MainProblem->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart4))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart3))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart2))->EndInit();
@@ -1079,6 +1040,10 @@ private: System::Void m_TextChanged(System::Object^ sender, System::EventArgs^ e
 private: System::Void chart4_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void checkBox1_CheckedChanged_1(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void panel2_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
+private: System::Void dataGridView2_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 }
 };
 	
