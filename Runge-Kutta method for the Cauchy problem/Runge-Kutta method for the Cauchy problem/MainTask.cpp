@@ -122,8 +122,9 @@ void MainTask::MRK4() {
 		next_mul_flag = 0;
 		div_flag = 0;
 
+		curr_h = std::min(x_end - curr_x, curr_h);
 		double next_x = curr_x + curr_h;
-			
+					
 		auto res = calculate_next_v(curr_h, curr_v1, curr_v2);//u_approximate
 		double next_v1 = res.first;
 		double next_v2 = res.second;
@@ -163,7 +164,6 @@ void MainTask::MRK4() {
 				continue;
 			}
 		}
-
 		StepResultMainTask^ next_row = gcnew StepResultMainTask();//start point
 		next_row->iter = ++counter_success;
 		next_row->x = next_x;

@@ -18,7 +18,7 @@ void Sample::CreateSampleData(int var, double x_0, double x_end, double h, doubl
 
 void Sample::PrintData() {
 	std::cout << "\n\nvar: "<< variant_num <<"\n x_0: " << x_0 << "\n x_end: " << x_end << "\n h: "  << h << "\n u_0: " << u_0;
-	std::cout << "n = " << results->Count << " b - xn = 0";
+	std::cout << "\nn = " << results->Count << " b - xn = 0";
 	
 	double max_h = results[0]->curr_h;
 	int index = 0;
